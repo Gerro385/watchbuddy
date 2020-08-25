@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_101112) do
     t.string "language"
     t.float "rating"
     t.string "media_type"
-    t.integer "imdb_id"
+    t.string "imdb_id"
     t.integer "total_seasons"
     t.integer "tmdb_id"
     t.string "origin_country"
