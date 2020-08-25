@@ -1,5 +1,4 @@
-class MediaPolicy < ApplicationPolicy
-
+class MediumPolicy < ApplicationPolicy
   def index?
     true
   end

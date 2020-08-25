@@ -45,7 +45,6 @@ Medium.create(
   poster: "http://image.tmdb.org/t/p/w500///" + medium["poster_path"],
 )
 
-
 ## LOTR 2 TOWERS ##
 
 medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/121?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US"
