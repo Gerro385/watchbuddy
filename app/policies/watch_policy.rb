@@ -1,4 +1,4 @@
-class WatchesPolicy < ApplicationPolicy
+class WatchPolicy < ApplicationPolicy
 
   def update?
     current_user == User.find(params[:id])
