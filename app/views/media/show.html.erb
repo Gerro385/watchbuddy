@@ -1,2 +1,2 @@
-<h1>Media#show</h1>
-<p>Find me in app/views/media/show.html.erb</p>
+<% yield %>
+<%= render user_signed_in? ? "../views/navbar_loggedin" : "../views/navbar_notloggedin" %>
