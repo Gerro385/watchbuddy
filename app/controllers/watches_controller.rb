@@ -10,11 +10,7 @@ class WatchesController < ApplicationController
 
   def update
     @watch = Watch.find(params[:id])
-    if @watch.update(watch_params)
-      redirect_to bookings_path, notice: 'Booking was updated'
-    else
-      render :edit
-    end
+    @watch.update(watch_params)
   end
 
   def destroy
