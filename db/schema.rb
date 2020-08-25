@@ -44,12 +44,11 @@ ActiveRecord::Schema.define(version: 2020_08_25_155201) do
     t.string "language"
     t.float "rating"
     t.string "media_type"
-    t.integer "imdb_id"
+    t.string "imdb_id"
     t.integer "total_seasons"
     t.integer "tmdb_id"
     t.string "origin_countries", default: [], array: true
     t.string "poster"
-
     t.date "first_air_date"
     t.date "last_air_date"
     t.datetime "created_at", precision: 6, null: false
