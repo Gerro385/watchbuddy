@@ -1,24 +1,28 @@
 class WatchesController < ApplicationController
   def index
-    @watches = Watch.all
+    @watches = policy_scope(Watch).all
   end
 
   def create
-    @watch = Watch.new(watch_params)
+    @watch = authorize Watch.new(watch_params)
     @watch.save
   end
 
   def update
-    @watch = Watch.find(params[:id])
+    set_watch
     @watch.update(watch_params)
   end
 
   def destroy
-    @watch = Watch.find(params[:id])
+    set_watch
     @watch.destroy
   end
 
   private
+
+  def set_watch
+    @watch = authorize Watch.find(params[:id])
+  end
 
   # params permission
   def watch_params

@@ -1,15 +1,18 @@
 class MediaController < ApplicationController
-
   # select item from search go for create, if id already in local db go to show, if not in db do create
   # then go to show
+  def index
+    @media = policy_scope(Medium).all
+  end
+
   def show
     # media is the db
     # display instance
-    @medium = Medium.find(params[:id])
+    @medium = authorize Medium.find(params[:id])
   end
 
   def create
-    @medium = Medium.new(medium_params)
+    @medium = authorize Medium.new(medium_params)
     @medium.save
   end
 
