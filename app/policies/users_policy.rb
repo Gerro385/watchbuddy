@@ -8,6 +8,14 @@ class UsersPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
+  def new?
+    create?
+  end
+
   def update?
     current_user == User.find(params[:id])
   end
