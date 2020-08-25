@@ -8,7 +8,7 @@ class CreateMedia < ActiveRecord::Migration[6.0]
       t.string :language
       t.float :rating
       t.string :media_type
-      t.integer :imdb_id
+      t.string :imdb_id
       t.integer :total_seasons
       t.integer :tmdb_id
       t.string :origin_country
