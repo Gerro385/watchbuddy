@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_084457) do
     t.integer "total_seasons"
     t.integer "tmdb_id"
     t.string "origin_country"
-    t.string "first_air_date"
-    t.string "last_air_date"
+    t.date "first_air_date"
+    t.date "last_air_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
