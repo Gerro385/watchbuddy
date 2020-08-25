@@ -1,1 +1,38 @@
 <%= render user_signed_in? ? "../views/navbar_loggedin" : "../views/navbar_notloggedin" %>
+
+
+<div class="container" style="margin-top: 50px">
+  <div class="d-flex border">
+      <div class="card-trip rounded">
+          <img class="card-img-top" src="<%= @medium.poster %>">
+      </div>
+      <div class="card-trip-infos border">
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="d-flex">
+              <h1 class="card-title"><%= @medium.title %></h1>
+              <div class="col-md-4">
+              <p class="card-text">Rating <%= @medium.rating %></p>
+              <p class="card-text"><small class="text-muted"><%= @medium.runtime %> minutes</small></p>
+              </div>
+            </div>
+            <p class="card-text"><%= @medium.language %></p>
+            <p class="card-text"><%= @medium.genres %></p>
+            <p class="card-text"><%= @medium.description %></p>
+            <p class="card-text"><%= @medium.language %></p>
+            <p class="card-text">First Air Date <%= @medium.first_air_date %></p>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+  <%= render "../views/footer" %>
+
+
+
+
