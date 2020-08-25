@@ -5,16 +5,18 @@ class MediaController < ApplicationController
   def show
     # media is the db
     # display instance
-
+    @medium = Medium.find(params[:id])
   end
 
   def create
-
+    @medium = Medium.new(medium_params)
+    @medium.save
   end
 
-
-
   private
-  #params permission
 
+  # params permission
+  def medium_params
+    params.require(:medium).permit(:title, :runtime, :genres, :description, :language, :rating, :media_type, :imdb_id, :total_seasons, :tmdb_id, :origin_country, :poster, :first_air_date, :last_air_date)
+  end
 end
