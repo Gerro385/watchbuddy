@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_101112) do
     t.integer "total_seasons"
     t.integer "tmdb_id"
     t.string "origin_country"
+    t.string "poster"
     t.date "first_air_date"
     t.date "last_air_date"
     t.datetime "created_at", precision: 6, null: false
