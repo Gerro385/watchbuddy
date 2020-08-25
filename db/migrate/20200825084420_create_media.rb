@@ -12,8 +12,8 @@ class CreateMedia < ActiveRecord::Migration[6.0]
       t.integer :total_seasons
       t.integer :tmdb_id
       t.string :origin_country
-      t.string :first_air_date
-      t.string :last_air_date
+      t.date :first_air_date
+      t.date :last_air_date
 
       t.timestamps
     end
