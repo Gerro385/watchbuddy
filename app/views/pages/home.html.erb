@@ -2,10 +2,11 @@
 
 <div class="container-fluid card-container d-flex justify-content-center flex-wrap mt-5">
 
-  <% Medium.all.sample(3).each do |medium| %>
-    <a class="card col-3 mx-3 px-0 my-3 border-0" style="text-decoration:none" href="<%= media_show_path(medium) %>">
-          <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+  <% Medium.all.sample(12).each do |medium| %>
+    <a class="card col-3 mx-3 px-0 my-3 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+      <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
     </a>
   <% end %>
 </div>
+
 <%= render "../views/footer" %>
