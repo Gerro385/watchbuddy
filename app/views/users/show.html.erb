@@ -1,0 +1,5 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :bio, as: :text %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
