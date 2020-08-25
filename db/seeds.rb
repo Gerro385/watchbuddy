@@ -32,6 +32,5 @@ Medium.create(
   poster: "http://image.tmdb.org/t/p/w500///" + medium["poster_path"],
 )
 
-
 # medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/30508?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US"
 # medium = JSON.parse(medium_raw)
