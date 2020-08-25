@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_101112) do
   create_table "media", force: :cascade do |t|
     t.string "title"
     t.integer "runtime"
-    t.string "genres"
+    t.string "genres", default: [], array: true
     t.text "description"
     t.string "language"
     t.float "rating"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_101112) do
     t.string "imdb_id"
     t.integer "total_seasons"
     t.integer "tmdb_id"
-    t.string "origin_country"
+    t.string "origin_countries", default: [], array: true
     t.string "poster"
     t.date "first_air_date"
     t.date "last_air_date"

@@ -3,7 +3,7 @@ class CreateMedia < ActiveRecord::Migration[6.0]
     create_table :media do |t|
       t.string :title
       t.integer :runtime
-      t.string :genres
+      t.string :genres, array: true, default: []
       t.text :description
       t.string :language
       t.float :rating
@@ -11,7 +11,7 @@ class CreateMedia < ActiveRecord::Migration[6.0]
       t.string :imdb_id
       t.integer :total_seasons
       t.integer :tmdb_id
-      t.string :origin_country
+      t.string :origin_countries, array: true, default: []
       t.string :poster
       t.date :first_air_date
       t.date :last_air_date
