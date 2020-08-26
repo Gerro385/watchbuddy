@@ -22,7 +22,18 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
         <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://clipartart.com/images/login-background-images-clipart-1.jpg" />
+          <img  class="avatar dropdown-toggle"
+                id="navbarDropdown"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                src="
+                 <% if current_user.photo.blank? %>
+                    https://clipartart.com/images/login-background-images-clipart-1.jpg
+                 <% else %>
+                    <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+                 <% end %>
+                " />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
             <%= link_to "Settings", "#", class: "dropdown-item" %>

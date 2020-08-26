@@ -1,10 +1,26 @@
 
-<div class="container-fluid card-container d-flex justify-content-center flex-wrap mt-5">
+<div class="container d-flex">
 
-  <% Medium.all.sample(12).each do |medium| %>
-    <a class="card col-3 mx-3 px-0 my-3 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
-      <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
-    </a>
-  <% end %>
+  <div class= "mt-2 align-items-left" >
+  <h1 class= "ml-3">Your movies</h1>
+  <div class="container d-flex flex-row flex-wrap">
+    <% Medium.all.sample(4).each do |medium| %>
+      <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+        <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+      </a>
+    <% end %>
+  </div>
+</div>
+
+  <div class= "mt-2 align-items-left" >
+    <h1 class= "ml-3">Your series</h1>
+    <div class="container d-flex flex-row flex-wrap">
+      <% Medium.all.sample(4).each do |medium| %>
+        <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+          <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+        </a>
+      <% end %>
+    </div>
+  </div>
 </div>
 
