@@ -14,6 +14,7 @@ class MediaController < ApplicationController
   def create
     @medium = authorize Medium.new(medium_params)
     @medium.save
+    redirect_to medium_path(@medium)
   end
 
   private
