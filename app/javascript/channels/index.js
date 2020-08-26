@@ -8,7 +8,7 @@ channels.keys().forEach(channels)
 
 
 
-
+/*
 const form = document.querySelector('#search-media');
 const results = document.querySelector("#results");
 form.addEventListener('keyup', (event) => {
@@ -16,13 +16,13 @@ form.addEventListener('keyup', (event) => {
   results.innerHTML = "";
   fetchMedia('harry potter');
 });
+*/
 
-/* stcon form = document.querySelector('#search-media');
+const form = document.querySelector('#search-media');
+const results = document.querySelector("#results");
 form.addEventListener('keyup', (event) => {
   event.preventDefault();
-  list.innerHTML = '';
-  const input = document.querySelector('#search-input');
-  fetchMovies(input.value);
+  results.innerHTML = "";
+  // const input = document.querySelector('#search-input');
+  fetchMedia(form.value);
 });
-
-*/
