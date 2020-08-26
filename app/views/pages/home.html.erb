@@ -6,9 +6,14 @@
   <h1 class= "ml-3">Your movies</h1>
   <div class="container d-flex flex-row flex-wrap">
     <% Medium.all.sample(4).each do |medium| %>
+    <div class="movieposter">
       <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
         <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+      <div class="popup">
+        <p>hidden elements</p>
+      </div>
       </a>
+    </div>
     <% end %>
   </div>
 </div>
@@ -17,12 +22,16 @@
     <h1 class= "ml-3">Your series</h1>
     <div class="container d-flex flex-row flex-wrap">
       <% Medium.all.sample(4).each do |medium| %>
-        <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+        <div class="movieposter">
+          <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
-        </a>
+        <div class="popup">
+        <p>hidden elements</p>
+        </div>
+          </a>
+        </div>
       <% end %>
     </div>
-  </div>
 </div>
 
 <%= render "../views/footer" %>
