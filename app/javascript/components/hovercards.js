@@ -8,6 +8,7 @@ hover.forEach(movie => {
   movie.style.transform = "scale(1.5)";
   movie.style.zIndex = "99";
   });
+
   movie.addEventListener("mouseout", function( event ) {
   // highlight the mouseenter target
   event.target.nextElementSibling.style.display = "none";
