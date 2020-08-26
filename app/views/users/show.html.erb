@@ -1,1 +1,4 @@
 <%= render user_signed_in? ? "../views/navbar_loggedin" : "../views/navbar_notloggedin" %>
+
+<%= link_to "Watchlist", user_watchlist_path(current_user), class: "" %>
+
