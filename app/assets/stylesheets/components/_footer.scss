@@ -5,3 +5,10 @@
 .footer-links a {
   color: $greenish;
 }
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
