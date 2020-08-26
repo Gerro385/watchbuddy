@@ -1,7 +1,7 @@
 // Load all the channels within this directory and all subdirectories.
 // Channel files must be named *_channel.js.
 
-import { fetchMedia } from './media_searchbar';
+import { fetchMedia } from './media_searchbar.js';
 
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
@@ -25,11 +25,4 @@ form.addEventListener('keyup', (event) => {
   fetchMovies(input.value);
 });
 
-
-
-element.style {
-    position: absolute;
-    z-index: 5;
-    left: 0;
-    background-color: white;
 */
