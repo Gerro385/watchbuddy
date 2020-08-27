@@ -12,9 +12,16 @@ class MediaController < ApplicationController
   end
 
   def create
-    p params
-    @medium.save
-    redirect_to medium_path(@medium)
+    medium_fetch = MovieFetch.new
+    @medium = Medium.new(medium_fetch.medium_hash(params[:tmdb_id]))
+    authorize @medium
+    medium_exist = Medium.find_by(imdb_id: @medium.imdb_id)
+    if medium_exist.nil?
+      @medium.save
+      redirect_to medium_path(@medium)
+    else
+      redirect_to medium_path(medium_exist)
+    end
   end
 
   private

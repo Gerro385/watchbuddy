@@ -13,7 +13,7 @@ const fetchMedia = (query) => {
       const medium = form.innerHTML;
       results.insertAdjacentHTML("afterbegin", medium);
       const newForm = document.querySelector(".media-form");
-      const idInput = newForm.querySelector("#tmbd_id");
+      const idInput = newForm.querySelector("#tmdb_id");
       idInput.value = result.id;
       const image = newForm.querySelector("img");
       image.src = `http://image.tmdb.org/t/p/w500///${result.poster_path}`;
