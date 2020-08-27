@@ -9,7 +9,7 @@ const fetchMedia = (query) => {
     data.results.slice(0, 5).reverse().forEach((result) => {
       console.log(result)
       const name = result.title ? result.title : result.name;
-      const medium = form.innerHTML; 
+      const medium = form.innerHTML;
       results.insertAdjacentHTML("afterbegin", medium);
       const newForm = document.querySelector(".media-form"); // why not use old form?
       const idInput = newForm.querySelector("#tmbd_id");
