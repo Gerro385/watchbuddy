@@ -9,14 +9,13 @@
             <div class="d-flex">
               <h1 class="card-title"><%= @medium.title %></h1>
               <div class="col-md-4">
-              <p class="card-text">Rating <%= @medium.rating %></p>
+              <p class="card-text">Rating: <%= @medium.rating %></p>
               <p class="card-text"><small class="text-muted"><%= @medium.runtime %> minutes</small></p>
               </div>
             </div>
-            <p class="card-text"><%= @medium.language %></p>
-            <p class="card-text"><%= @medium.genres %></p>
+            <p class="card-text">Language: <%= @medium.language %></p>
+            <p class="card-text">Genres: <%= @medium.genres %></p>
             <p class="card-text"><%= @medium.description %></p>
-            <p class="card-text"><%= @medium.language %></p>
             <p class="card-text">First Air Date <%= @medium.first_air_date %></p>
           </div>
         </div>
