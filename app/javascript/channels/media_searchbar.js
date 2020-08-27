@@ -2,9 +2,11 @@ const fetchMedia = (query) => {
   const results = document.querySelector("#results"); // results is ul from the navbar where results get inserted as li
   const form = document.querySelector("template"); // from navbar
   const TMDB_KEY = results.dataset.tmdbApiKey; // takes the tmdb key from the ul dataset
+  const searchbar = document.querySelector('#search-media');
   fetch(`https://api.themoviedb.org/3/search/multi?api_key=${TMDB_KEY}&query=${query}`)
   .then(response => response.json())
   .then((data) => {
+    if (searchbar.value !== "") {
     if (data.results.length !== 0) { // if no results we get an empty array
       data.results.slice(0, 5).reverse().forEach((result) => {
         const name = result.title ? result.title : result.name;
@@ -26,6 +28,7 @@ const fetchMedia = (query) => {
       const title = document.querySelector("#media-name");
       title.innerText = "no search results";
     };
+  };
   })
 };
 
