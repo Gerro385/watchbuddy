@@ -9,7 +9,8 @@
       <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
         <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
       <div class="popup">
-        <p>hidden elements</p>
+        <p class="card-title"><%= medium.title %></p>
+        <p class="card-text">Rating <%= medium.rating %></p>
       </div>
       </a>
     </div>
@@ -25,7 +26,8 @@
           <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
         <div class="popup">
-        <p>hidden elements</p>
+        <p class="card-title"><%= medium.title %></p>
+        <p class="card-text">Rating <%= medium.rating %></p>
         </div>
           </a>
         </div>
