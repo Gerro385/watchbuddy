@@ -19,9 +19,9 @@
     <%= render user_signed_in? ? "../views/navbar_loggedin" : "../views/navbar_notloggedin" %>
     <%= yield %>
 
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= render "../views/footer" %>
   </body>
 </html>

@@ -1,9 +1,42 @@
-<div class="container">
+<div class="container d-flex">
+<div class="card col-5 justify-content-center align-items-center mt-3" style="background-color: #0B0C10;">
+  <img class="profile"
+  style="
+    margin-top: 20px;
+    border-style: none;
+    border-radius: 5px;
+      "
+  src="
+      <% if current_user.photo.blank? %>
+        https://clipartart.com/images/login-background-images-clipart-1.jpg
+      <% else %>
+        <%= cl_image_path current_user.photo.key, width: 250, height: 250, crop: :fill%>
+      <% end %>
+      " />
 
 
+  <div class="mt-4">
+    <p>----- This is a place for your bio -----</p>
+    <br>
+    <br>
+    <br>
       <%= link_to "Edit Profile", "users/edit", class: "" %>
-      <%= link_to "Home", root_path, class: "" %>
+
+  </div>
+
+</div>
+  <div class="profile-info col-5 justify-content-center align-items-center mt-3">
+    <h1><%= current_user.first_name + current_user.last_name%></h1>
+    <h2>My favourite movies</h2>
+    <br>
+    <h2>My favourite series</h2>
 
 
 
+
+
+  </div>
+  <div class="links col-2 justify-content-center align-items-center mt-3">
+    <%= link_to "Go to My Watchlist", "watchlist", class: "" %>
+  </div>
 </div>
