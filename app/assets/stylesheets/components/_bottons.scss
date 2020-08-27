@@ -3,3 +3,18 @@
   color: $electricblue;
   border-radius: 1px;
 }
+
+.btn-round {
+  color: #0B0C10;
+  border: 1px solid #66FCF1;
+  background-color: #66FCF1;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: solid;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-round:hover {
+  opacity: 1;
+}
