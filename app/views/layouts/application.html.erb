@@ -6,8 +6,6 @@
     <%= csp_meta_tag %>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
 
 
@@ -21,8 +19,9 @@
     <%= render user_signed_in? ? "../views/navbar_loggedin" : "../views/navbar_notloggedin" %>
     <%= yield %>
 
-<br>
-<br>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= render "../views/footer" %>
   </body>
 </html>
