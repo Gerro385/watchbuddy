@@ -12,4 +12,7 @@ class UsersController < ApplicationController
 
   def seen
   end
+
+  def buddies
+  end
 end

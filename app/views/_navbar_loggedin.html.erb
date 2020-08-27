@@ -19,6 +19,8 @@
       <li class="active">
         <%= link_to "Find Buddies", users_path, class: "mr-3 pb-0" %>
         <%= link_to "My Watchlist", watchlist_path, class: "mr-3 pb-0" %>
+        <%= link_to "My Buddies", user_buddies_path(current_user), class: "mr-3 pb-0" %>
+
       </li>
     </div>
 

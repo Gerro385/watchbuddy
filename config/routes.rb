@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :watches, only: %i[index create update destroy]
     get '/watchlist', to: 'users#watchlist'
     get '/seen', to: 'users#seen'
+    get '/buddies', to: 'users#buddies'
   end
 end
