@@ -7,7 +7,12 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+
   def favorite?
+    true
+  end
+
+  def create?
     true
   end
 
