@@ -14,9 +14,10 @@
               </div>
             </div>
             <p class="card-text">Language: <%= @medium.language %></p>
+            <p class="card-text">Countries: <%= @medium.origin_countries.join(", ") %></p>
             <p class="card-text">Genres: <%= @medium.genres.join(", ") %></p>
             <p class="card-text"><%= @medium.description %></p>
-            <p class="card-text">First Air Date <%= @medium.first_air_date %></p>
+            <p class="card-text">Released: <%= @medium.first_air_date.strftime("%d %B %Y") %></p>
           </div>
         </div>
       </div>
