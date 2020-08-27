@@ -12,7 +12,7 @@ class MediaController < ApplicationController
   end
 
   def create
-    @medium = authorize Medium.new(medium_params)
+    p params
     @medium.save
     redirect_to medium_path(@medium)
   end
