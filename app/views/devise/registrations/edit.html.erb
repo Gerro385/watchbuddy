@@ -37,7 +37,7 @@
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :bio,
                 hint: "Add few sentences about yourself so that others can get to know you and your faves better!",
-                required: true,
+                required: false,
                 autofocus: true,
                 input_html: { autocomplete: "bio" }%>
     <%= f.input :photo, as: :file,
@@ -46,7 +46,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", class: "btn-outline-spacegreen" %>
   </div>
 <% end %>
 
