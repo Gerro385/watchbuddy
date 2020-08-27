@@ -10,7 +10,7 @@
 require "rest-client"
 
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/30508?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/30508?api_key=#{ENV['TMDB_KEY']}&language=en-US"
 medium = JSON.parse(medium_raw)
 
 ## BERLIN CALLING ##
@@ -48,7 +48,7 @@ Medium.create(
 
 ## LOTR 1 ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/120?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/120?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -82,7 +82,7 @@ Medium.create(
 
 ## LOTR 2 TOWERS ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/121?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/121?api_key=#{ENV['TMDB_KEY']}&language=en-US"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -117,7 +117,7 @@ Medium.create(
 
 ## LOTR 3 ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/122?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/122?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -152,7 +152,7 @@ Medium.create(
 
 ## LOTR quest ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/573089?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/4133?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 poster_path = medium["poster_path"] ? "http://image.tmdb.org/t/p/w500///" + medium["poster_path"] : "https://image.flaticon.com/icons/svg/16/16980.svg"
@@ -189,7 +189,7 @@ Medium.create(
 
 ## LOTR making of ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/335612?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/335612?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 poster_path = medium["poster_path"] ? "http://image.tmdb.org/t/p/w500///" + medium["poster_path"] : "https://image.flaticon.com/icons/svg/16/16980.svg"
@@ -226,7 +226,7 @@ Medium.create(
 
 ## SPUN ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/12079?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/12079?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -262,7 +262,7 @@ Medium.create(
 
 ## City of God ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/598?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/598?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -299,7 +299,7 @@ Medium.create(
 
 ## Scarface ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/111?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/movie/111?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -352,7 +352,7 @@ Medium.create(
 
 ## Breaking Bad ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/1396?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/1396?api_key=#{ENV['TMDB_KEY']}&language=en-US"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -389,7 +389,7 @@ Medium.create(
 
 ## Suits ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/37680?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/37680?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -425,7 +425,7 @@ Medium.create(
 
 ## Mindhunter ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/67744?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/67744?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -462,7 +462,7 @@ Medium.create(
 
 ## Lie to me ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/8358?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/8358?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -498,7 +498,7 @@ Medium.create(
 
 ## Devs  ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/81349?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/81349?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -534,7 +534,7 @@ Medium.create(
 
 ## Vikings  ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/44217?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/44217?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
@@ -571,7 +571,7 @@ Medium.create(
 
 ## Game of Thrones  ##
 
-medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/1399?api_key=8081155eac22e256dfac70b9d7913b13&language=en-US%22"
+medium_raw = RestClient.get "https://api.themoviedb.org/3/tv/1399?api_key=#{ENV['TMDB_KEY']}&language=en-US%22"
 medium = JSON.parse(medium_raw)
 
 title = medium["title"] ? medium["title"] : medium["name"]
