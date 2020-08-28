@@ -1,12 +1,12 @@
-let fbutton = document.querySelectorAll(".button-favorite");
-// let popup = document.querySelector(".popup");
+// let fbutton = document.querySelectorAll(".button-favorite");
+// // let popup = document.querySelector(".popup");
 
-fbutton.forEach(button => {
-  button.addEventListener('click', function( event ) {
-    console.log("event triggered")
-    event.preventDefault();
-  });
-});
+// fbutton.forEach(button => {
+//   button.addEventListener('click', function( event ) {
+//     console.log("event triggered")
+//     event.preventDefault();
+//   });
+// });
 
 
 

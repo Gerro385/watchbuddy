@@ -12,8 +12,14 @@
   color: $grey;
 }
 
-.popup {
-  display: hidden;
+.movieposter .button-favorite {
+  display: none;
+  width: 220px;
+  position: relative;
+  top: 5px;
+  left: 5px;
+  z-index: 1000;
+
 }
 
 .movieposter {
@@ -29,6 +35,13 @@
 
   .popup {
     display: block;
+  }
+
+  .button-favorite {
+    display: block;
+    opacity: 2;
+    top: 5px;
+    left: -80px;
   }
 }
 
