@@ -73,10 +73,10 @@ ActiveRecord::Schema.define(version: 2020_08_27_143903) do
   create_table "watches", force: :cascade do |t|
     t.string "description"
     t.float "rating"
-    t.boolean "seen"
+    t.boolean "seen", default: false
     t.date "watched_date"
-    t.boolean "private"
-    t.boolean "favourite"
+    t.boolean "private", default: false
+    t.boolean "favourite", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "medium_id"

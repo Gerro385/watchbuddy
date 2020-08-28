@@ -11,4 +11,8 @@ class PagesController < ApplicationController
   def watchlist
     @watches = Watch.all.select(user: current_user, seen: false)
   end
+
+  def favourites
+    @favourites = Watch.all.select(user: current_user, favourites: true)
+  end
 end
