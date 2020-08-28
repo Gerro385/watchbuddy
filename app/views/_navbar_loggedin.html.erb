@@ -16,9 +16,11 @@
     <template>
       <%= form_with url: media_path, class: "media-form" do |form| %>
         <button>
-          <li class="list-inline-item card p-2 d-flex">
-            <img src="" alt="No img available">
-            <p id="media-name"></p>
+          <li class="list-inline-item card p-2">
+          <div class="d-flex liwrap">
+          <img src="" alt="No img available">
+          <h5 id="media-name" class="ml-2"></h5>
+          </div>
           </li>
           <%= form.hidden_field :tmdb_id, value: '' %>
           <%= form.hidden_field :media_type, value: '' %>
