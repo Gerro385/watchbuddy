@@ -13,6 +13,6 @@ class PagesController < ApplicationController
   end
 
   def favourites
-    @favourites = Watch.all.select(user: current_user, favourites: true)
+    @favourites = Watch.where(user: current_user, favourite: true)
   end
 end

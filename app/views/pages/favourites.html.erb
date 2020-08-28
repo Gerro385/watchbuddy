@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-7">
-      <div class="card-watch border">
-      <img class="card-img-top" src="<%= @medium.poster %>" />
-        <div class="card-watch-infos">
-        <h2 class="card-title"><%= @medium.title %></h2>
-          <p class="mx-1"><%= medium.description %></p>
+      <%= @favourites.each do |watch| %>
+        <div class="card-watch border">
+        <img class="card-img-top" src="<%= watch.medium.poster %>" />
+          <div class="card-watch-infos">
+          <h2 class="card-title"><%= watch.medium.title %></h2>
+            <p class="mx-1"><%= watch.medium.description %></p>
+          </div>
         </div>
-      </div>
-
+      <% end %>
     </div>
   </div>
 </div>

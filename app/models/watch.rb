@@ -1,5 +1,6 @@
 class Watch < ApplicationRecord
   belongs_to :user
+  belongs_to :watch
   # after_initialize :set_favourite, :set_seen
 
   # private
