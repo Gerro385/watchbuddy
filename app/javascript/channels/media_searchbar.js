@@ -13,6 +13,8 @@ const fetchMedia = (query) => {
         const newForm = document.querySelector(".media-form"); // query for the template to actually have access to the html inside
         const idInput = newForm.querySelector("#tmdb_id");
         idInput.value = result.id;
+        const mediaType = newForm.querySelector("#media_type");
+        mediaType.value = result.media_type;
         const image = newForm.querySelector("img");
         image.src = result.poster_path ? `http://image.tmdb.org/t/p/w500///${result.poster_path}`: "https://image.flaticon.com/icons/svg/16/16980.svg";
         const title = document.querySelector("#media-name");
