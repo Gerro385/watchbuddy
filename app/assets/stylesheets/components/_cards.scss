@@ -55,4 +55,40 @@
   }
 }
 
+.cards {
+  display: grid;
+  grid-gap: 16px;
+}
 
+.card-fav {
+  overflow: hidden;
+  border: 1px solid white;
+
+}
+
+.card-fav > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid white;
+
+}
+
+.card-fav h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-fav p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-fav .card-fav-infos {
+  padding: 16px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
