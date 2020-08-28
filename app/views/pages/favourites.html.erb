@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mt-4">
+      <% @favourites.each do |watch| %>
+        <div class="card card-fav">
+          <img src="<%= watch.medium.poster %>" />
+          <div class="card-fav-infos">
+            <h2 class="card-title"><strong><%= watch.medium.title %></strong></h2>
+            <p class="card-text">Rating: <%= watch.medium.rating %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
