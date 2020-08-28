@@ -40,8 +40,12 @@
 #search-media {
   position: relative;
   width: 100%;
+  background-color: $metalic;
+  color: $light-gray;
 }
 
 .searchbardiv {
   width: 350px;
+  border-style: outset;
+  border-color: $greenish;
 }
