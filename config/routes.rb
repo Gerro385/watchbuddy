@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     get '/seen', to: 'users#seen'
     get '/buddies', to: 'users#buddies'
   end
+    get '/like/:medium_id', to: 'watches#favorite', as: 'like'
 end

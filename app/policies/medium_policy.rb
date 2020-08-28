@@ -7,6 +7,15 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+
+  def favorite?
+    true
+  end
+
+  def create?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
