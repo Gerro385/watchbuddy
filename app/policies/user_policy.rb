@@ -28,6 +28,10 @@ class UserPolicy < ApplicationPolicy
     current_user == User.find(params[:id])
   end
 
+  def buddies?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
