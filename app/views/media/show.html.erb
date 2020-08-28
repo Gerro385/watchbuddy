@@ -13,11 +13,21 @@
               <p class="card-text"><small class="text-muted">Time: <%= @medium.runtime %> minutes</small></p>
               </div>
             </div>
-            <p class="card-text">Language: <%= @medium.language %></p>
-            <p class="card-text">Countries: <%= @medium.origin_countries.join(", ") %></p>
-            <p class="card-text">Genres: <%= @medium.genres.join(", ") %></p>
+            <div class="row mb-3">
+              <div class="col-2"><strong>
+                <p class="card-text">Language:</p>
+                <p class="card-text">Countries:</p>
+                <p class="card-text">Genres:</p>
+                <p class="card-text">Released:</p>
+              </strong></div>
+              <div class="col">
+                <p class="card-text"><%= @medium.language %></p>
+                <p class="card-text"><%= @medium.origin_countries.join(", ") %></p>
+                <p class="card-text"><%= @medium.genres.join(", ") %></p>
+                <p class="card-text"><%= @medium.first_air_date.strftime("%d %B %Y") %></p>
+              </div>
+            </div>
             <p class="card-text"><%= @medium.description %></p>
-            <p class="card-text">Released: <%= @medium.first_air_date.strftime("%d %B %Y") %></p>
           </div>
         </div>
       </div>
