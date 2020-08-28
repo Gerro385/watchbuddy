@@ -1,42 +1,32 @@
-<div class="container d-flex">
-<div class="card col-5 justify-content-center align-items-center mt-3" style="background-color: #0B0C10;">
-  <img class="profile"
-  style="
-    margin-top: 20px;
-    border-style: none;
-    border-radius: 5px;
-      "
-  src="
-      <% if current_user.photo.blank? %>
-        https://clipartart.com/images/login-background-images-clipart-1.jpg
-      <% else %>
-        <%= cl_image_path current_user.photo.key, width: 250, height: 250, crop: :fill%>
-      <% end %>
-      " />
-
-
-  <div class="mt-4">
-    <p>----- This is a place for your bio -----</p>
-    <br>
-    <br>
-    <br>
-      <%= link_to "Edit Profile", "users/edit", class: "" %>
-
+<div class="container d-flex row mt-4">
+  <div class="card col-6 justify-content-center align-items-center" style="background-color: $smokeyblack;">
+    <div class="card" style="
+    width: 18rem;
+    background-color: $smokeyblack;">
+    <img class="card-img-top" src="
+        <% if current_user.photo.blank? %>
+          https://clipartart.com/images/login-background-images-clipart-1.jpg
+        <% else %>
+          <%= cl_image_path current_user.photo.key, width: 250, height: 300, crop: :fill%>
+        <% end %>
+        " alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">BIO</h5>
+        <p class="card-text"><%= current_user.bio %></p>
+        <%= link_to "Edit Profile", "users/edit", class: "btn btn-round" %>
+      </div>
+    </div>
   </div>
-
-</div>
-  <div class="profile-info col-5 justify-content-center align-items-center mt-3">
+  <div class="profile-info col-5 justify-content-center align-items-center">
     <h1><%= current_user.first_name + current_user.last_name%></h1>
-    <h2>My favourite movies</h2>
+    <h2>== Recently Seen ==</h2>
     <br>
-    <h2>My favourite series</h2>
-
-
-
 
 
   </div>
-  <div class="links col-2 justify-content-center align-items-center mt-3">
-    <%= link_to "Go to My Watchlist", "watchlist", class: "" %>
+  <div class="links col-1 justify-content-center align-items-center mt-4">
+    <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-round" %>
   </div>
 </div>
+
+
