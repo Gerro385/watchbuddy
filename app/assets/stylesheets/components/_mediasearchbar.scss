@@ -2,13 +2,36 @@
   position: absolute;
   z-index: 5;
   left: 0;
-  background-color: white;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #results img {
   width: 120px;
+  height: 150px;
 }
+
+#results button {
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#results p {
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+#results li {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+
 
 #search-media {
   position: relative;
+  width: 100%;
+}
+
+.searchbardiv {
+  width: 350px;
 }
