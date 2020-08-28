@@ -13,6 +13,15 @@ class WatchesController < ApplicationController
     @watch.update(watch_params)
   end
 
+  def favorite
+    @medium = Medium.find(params[:medium_id])
+    authorize @medium
+    @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
+    @watch.toggle(:favourite)
+    @watch.save
+    redirect_to root_path
+  end
+
   def destroy
     set_watch
     @watch.destroy
