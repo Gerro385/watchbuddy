@@ -9,5 +9,6 @@ class PagesController < ApplicationController
   end
 
   def watchlist
+    @watches = Watch.all.select(user: current_user, seen: false)
   end
 end
