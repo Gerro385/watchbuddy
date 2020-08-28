@@ -22,8 +22,11 @@
 .movieposter .button-favorite {
   display: none;
   position: relative;
-  bottom: 5px;
-  right: 5px;
+  height: 30px;
+  width: 30px;
+  opacity: 1;
+  bottom: 35px;
+  right: 40px;
   z-index: 1000;
 
 }
@@ -31,7 +34,8 @@
 .movieposter {
   transition: all 0.4s ease-in-out;
   width: 220px;
-  border-radius: 2px
+  border-radius: 2px;
+  margin: 4px;
 }
 
 .movieposter:hover {
@@ -45,9 +49,11 @@
 
   .button-favorite {
     display: block;
+    height: 30px;
+    width: 30px;
     opacity: 1;
-    bottom: 5px;
-    right: -5px;
+    bottom: 35px;
+    right: 40px;
 
     :hover {
       filter: brightness(0.6);
