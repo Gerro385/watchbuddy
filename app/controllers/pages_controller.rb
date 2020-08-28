@@ -10,4 +10,8 @@ class PagesController < ApplicationController
 
   def watchlist
   end
+
+  def favourites
+    @favourites = Watch.all.select(user: current_user, favourites: true)
+  end
 end
