@@ -19,7 +19,12 @@ class WatchesController < ApplicationController
     @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
     @watch.toggle(:favourite)
     @watch.save
-    redirect_to root_path
+
+    if params[:show].present?
+      redirect_to medium_path(@medium)
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
