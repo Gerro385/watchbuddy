@@ -8,7 +8,7 @@ class MediumPolicy < ApplicationPolicy
   end
 
 
-  def favorite?
+  def favourite?
     true
   end
 
