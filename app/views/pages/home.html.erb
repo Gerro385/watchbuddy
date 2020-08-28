@@ -1,6 +1,6 @@
 <div class="container d-flex">
-  <div class= "mt-2" style="text-align: center">
-    <h1 class= "ml-3 mt-4 mb-3"><strong>YOUR MOVIES</strong></h1>
+  <div class= "mt-2">
+    <h1 class= "ml-3 mt-4 mb-3" style="text-align: center"><strong>YOUR MOVIES</strong></h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
     <% media = Medium.where(media_type: "movie") %>
     <% media.sample(4).each do |medium| %>
@@ -17,8 +17,8 @@
     <% end %>
   </div>
   </div>
-  <div class= "mt-2" style="text-align: center" >
-    <h1 class= "ml-3 mt-4 mb-3 strong"><strong>YOUR SERIES</strong></h1>
+  <div class= "mt-2">
+    <h1 class= "ml-3 mt-4 mb-3" style="text-align: center"><strong>YOUR SERIES</strong></h1>
     <div class="container d-flex flex-row flex-wrap justify-content-center">
         <% media = Medium.where(media_type: "tv") %>
         <% media.sample(4).each do |medium| %>
