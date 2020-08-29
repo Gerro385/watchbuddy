@@ -29,7 +29,7 @@
               </div>
             </div>
             <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
-            <p class="card-text"><%= @medium.description.slice(1..500) + dots %></p>
+            <p class="card-text"><%= @medium.description.slice(0..500) + dots %></p>
           </div>
         </div>
       </div>
