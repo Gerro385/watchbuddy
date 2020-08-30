@@ -1,6 +1,23 @@
 <div class="container">
   <h1>Search for buddies! 🚹 🚺 </h1>
-<br>
+  <br>
   <p>======  add search engine here  =======</p>
+
+  <div class="d-flex barframe my-3 justify-content-center">
+    <%= form_tag users_path, method: :get, class: "form-inline searchbar" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control", id:"searchbar",
+      placeholder: "🔍 Find new buddies!"
+      %>
+      <div class="child">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+  <% @users.each do |user| %>
+   <p><%= user.email %></p>
+   <% end %>
 
 </div>
