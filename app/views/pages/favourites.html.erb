@@ -5,8 +5,8 @@
         <div class="d-flex card-fav justify-content-between">
           <img src="<%= watch.medium.poster %>" style="max-height: 300px;"/>
           <div class="card-fav-infos">
-            <h2 class="card-title pt-3"><strong><%= watch.medium.title %></strong></h2>
-            <p class="card-text">Rating: <%= watch.medium.rating %></p>
+            <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
+            <p class="card-text mb-2"><%= cl_image_tag("star-filled") %> <%= watch.medium.rating %></p>
             <% watch.medium.description.length > 500 ? dots = "..." : dots = ""  %>
             <p class="card-text"><%= watch.medium.description.slice(0..500) + dots %></p>
           </div>
