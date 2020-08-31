@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-=begin
 require "rest-client"
 
 
@@ -602,9 +601,8 @@ Medium.create(
   last_air_date: medium["last_air_date"],
   poster: "http://image.tmdb.org/t/p/w500///" + medium["poster_path"],
 )
-=end
 
-User.create!(
+max = User.create!(
   email: "max@mustermann.com",
   password: "666666",
   password_confirmation: "666666",
@@ -612,7 +610,7 @@ User.create!(
   last_name: "Mustermann"
 )
 
-User.create!(
+tom = User.create!(
   email: "Tom@mustermann.com",
   password: "666666",
   password_confirmation: "666666",
@@ -620,7 +618,7 @@ User.create!(
   last_name: "Mustermann"
 )
 
-User.create!(
+lisa = User.create!(
   email: "Lisa@mustermann.com",
   password: "666666",
   password_confirmation: "666666",
@@ -628,9 +626,7 @@ User.create!(
   last_name: "Mustermann"
 )
 
-
-
-User.create!(
+bernd = User.create!(
   email: "bernd@brot.com",
   password: "666666",
   password_confirmation: "666666",
@@ -638,7 +634,7 @@ User.create!(
   last_name: "Brot"
 )
 
-User.create!(
+keinbrot = User.create!(
   email: "Bernd@keinbrot.com",
   password: "666666",
   password_confirmation: "666666",
@@ -668,4 +664,28 @@ User.create!(
   password_confirmation: "666666",
   first_name: "Gerri",
   last_name: "Mampf"
+)
+
+Request.create!(
+  sender_id: bernd.id,
+  receiver_id: max.id,
+  status: 1
+)
+
+Request.create!(
+  sender_id: tom.id,
+  receiver_id: bernd.id,
+  status: 1
+)
+
+Request.create!(
+  sender_id: bernd.id,
+  receiver_id: lisa.id,
+  status: 1
+)
+
+Request.create!(
+  sender_id: keinbrot.id,
+  receiver_id: bernd.id,
+  status: 1
 )
