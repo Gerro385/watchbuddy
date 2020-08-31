@@ -7,6 +7,13 @@ class RequestsController < ApplicationController
     @request.save
   end
 
+  def update
+    @request = Request.find(params[:id])
+    @request[:status] = params[:confirmation]
+    @request.save
+    redirect_to user_buddies_path
+  end
+
   def buddies
     authorize current_user
     sent = Request.where(sender_id: current_user.id, status: 1)

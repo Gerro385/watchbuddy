@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get '/watchlist', to: 'users#watchlist'
     get '/seen', to: 'users#seen'
     get '/buddies', to: 'requests#buddies'
-    post '/request', to: 'requests#create'
+    resources :requests, only: %i[create update]
   end
   get '/like/:medium_id', to: 'watches#favourite', as: 'like'
 end

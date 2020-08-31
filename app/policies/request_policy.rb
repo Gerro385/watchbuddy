@@ -3,7 +3,11 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
-  def buddies
+  def update?
+    true
+  end
+
+  def buddies?
     true
   end
 
