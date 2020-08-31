@@ -159,7 +159,24 @@
     right: 0px;
   }
 }
+.card-seen img {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
+}
 
+.card-seen {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  height: 150px;
+  background: white;
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  background-color: #0B0C10;
+  border: 1px solid white;
+}
 .card-trip-infos {
   a {
     img {
@@ -168,4 +185,3 @@
     }
   }
 }
-

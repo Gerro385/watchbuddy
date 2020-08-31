@@ -18,9 +18,23 @@
     </div>
     <div class="profile-info col-5 justify-content-center align-items-center">
       <h1><%= current_user.first_name + current_user.last_name%></h1>
-      <h2>== Recently Seen ==</h2>
       <br>
 
+      <h2> Recently seen </h2>
+      <div class="row justify-content-center">
+        <% if @seen %>
+          <% @seen.each do |watch| %>
+           <a class="card-seen" href="<%= medium_path(watch.medium) %>">
+            <img class="card-img-seen" src="<%= watch.medium.poster %>">
+            <div class="card-seen-infos d-flex">
+               <%= watch.medium.title %>
+               <strong><%= watch.medium.rating %></strong>
+               <%= watch.created_at.strftime("%e %B %Y")%>
+            </div>
+          </a>
+          <% end %>
+        <% end %>
+      </div>
 
     </div>
     <div class="links col-1 justify-content-center align-items-center mt-4">
