@@ -23,7 +23,12 @@
              <% end %>
         <div class="card-buddy-infos d-flex">
           <h2><%= user.first_name %> <%= user.last_name %></h2>
-          <%= link_to cl_image_tag("buddy-empty") %>
+          <% fetch = Request.find_by(sender_id: current_user.id, receiver_id: user.id).present? || Request.find_by(sender_id: user.id, receiver_id: current_user.id) %>
+          <% if fetch.nil? %>
+            <%= link_to cl_image_tag("buddy-empty"), user_requests_path(user), method: :post %>
+          <% else %>
+            <a><%= cl_image_tag("buddy-filled") %></a>
+          <% end %>
         </div>
       </div>
       <% end %>
