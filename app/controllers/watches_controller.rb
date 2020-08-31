@@ -22,7 +22,7 @@ class WatchesController < ApplicationController
     authorize @medium
     @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
     @watch.toggle(:favourite)
-    @watch.save
+    @watch.save!
 
     respond_to do |format|
       format.html { redirect_to medium_path(@medium) }
