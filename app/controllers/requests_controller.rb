@@ -14,9 +14,9 @@ class RequestsController < ApplicationController
     redirect_to user_buddies_path
   end
 
-  def buddies
-    sent = policy_scope(Request).where(sender_id: params[:id], status: 1)
-    received = policy_scope(Request).where(receiver_id: params[:id], status: 1)
-    @buddies = sent.map { |request| User.find_by(id: request.receiver_id) } + received.map { |request| User.find_by(id: request.sender_id) }
+  def destroy
+    @request = Request.find(params[:id])
+    @request.destroy
+    redirect_to user_buddies_path
   end
 end

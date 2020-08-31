@@ -19,5 +19,9 @@ class UsersController < ApplicationController
   end
 
   def buddies
+    @user = authorize User.find_by(params[:id])
+    sent = Request.where(sender_id: params[:id], status: 1)
+    received = Request.where(receiver_id: params[:id], status: 1)
+    @buddies = sent.map { |request| User.find_by(id: request.receiver_id) } + received.map { |request| User.find_by(id: request.sender_id) }
   end
 end
