@@ -7,11 +7,11 @@
           <div class="card-fav-infos">
             <h2 class="card-title pt-3"><strong><%= watch.medium.title %></strong></h2>
             <p class="card-text">Rating: <%= watch.medium.rating %></p>
-            <p class="card-text"><%= watch.medium.description %></p>
+            <% watch.medium.description.length > 500 ? dots = "..." : dots = ""  %>
+            <p class="card-text"><%= watch.medium.description.slice(0..500) + dots %></p>
           </div>
         </div>
       </a>
     <% end %>
   </div>
 </div>
-
