@@ -146,5 +146,13 @@
 }
 
 
-
+.card-profile {
+  width: 18rem;
+  background-color: #0B0C10;
+  position: relative;
+  .btn-outline-spacegreen {
+    position: absolute;
+    right: 0px;
+  }
+}
 

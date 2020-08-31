@@ -1,8 +1,6 @@
 <div class="container d-flex row mt-4">
-  <div class="card col-6 justify-content-center align-items-center" style="background-color: $smokeyblack;">
-    <div class="card" style="
-    width: 18rem;
-    background-color: $smokeyblack;">
+  <div class="card col-6 justify-content-center align-items-center" style="background-color: #0B0C10;">
+    <div class="card-profile">
     <img class="card-img-top" src="
         <% if current_user.photo.blank? %>
           https://clipartart.com/images/login-background-images-clipart-1.jpg
@@ -13,7 +11,7 @@
       <div class="card-body">
         <h5 class="card-title">BIO</h5>
         <p class="card-text"><%= current_user.bio %></p>
-        <%= link_to "Edit Profile", "users/edit", class: "btn btn-round" %>
+        <%= link_to "Edit Profile", "users/edit", class: "btn btn-outline-spacegreen" %>
       </div>
     </div>
   </div>
