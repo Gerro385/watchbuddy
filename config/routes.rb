@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
   get 'profile/watchlist', to: 'pages#watchlist'
   get 'profile/favourites', to: 'pages#favourites'
+  get 'profile/buddies', to: 'pages#buddies'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :media, only: %i[index show create]
   resources :users, only: %i[index show] do
