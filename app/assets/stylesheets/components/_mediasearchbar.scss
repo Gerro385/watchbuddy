@@ -14,7 +14,7 @@
 }
 
 #results button {
-  width: 552px;
+  width: 502px;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 0px;
   height: 110px;
@@ -40,12 +40,17 @@
 #search-media {
   position: relative;
   width: 100%;
-  background-color: $metalic;
+  background-color: $light-gray;
   color: $light-gray;
+  border-width: 0px;
+  border-style: none;
+  padding-left: 5px;
 }
 
 .searchbardiv {
-  width: 550px;
-  border-style: outset;
-  border-color: $greenish;
+  width: 500px;
+  border-style: solid;
+  border-color: $electricblue;
+  border-width: 2px;
+  border-radius: 3px;
 }
