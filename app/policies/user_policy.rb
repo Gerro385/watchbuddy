@@ -30,6 +30,7 @@ class UserPolicy < ApplicationPolicy
 
   def buddies?
     true
+    # Request.find_by(sender_id: current_user.id, receiver_id: params[:id], status: 1).exists? || Request.find_by(sender_id: params[:id], receiver_id: current_user.id, status: 1).exists?
   end
 
   class Scope < Scope

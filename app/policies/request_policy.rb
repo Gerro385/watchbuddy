@@ -7,10 +7,6 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
-  def buddies?
-    true
-  end
-
   class Scope < Scope
     def resolve
       scope.all
