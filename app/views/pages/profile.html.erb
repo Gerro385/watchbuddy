@@ -1,31 +1,31 @@
-<div class="container d-flex row mt-4">
-  <div class="card col-6 justify-content-center align-items-center" style="background-color: $smokeyblack;">
-    <div class="card" style="
-    width: 18rem;
-    background-color: $smokeyblack;">
-    <img class="card-img-top" src="
-        <% if current_user.photo.blank? %>
-          https://clipartart.com/images/login-background-images-clipart-1.jpg
-        <% else %>
-          <%= cl_image_path current_user.photo.key, width: 250, height: 300, crop: :fill%>
-        <% end %>
-        " alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">BIO</h5>
-        <p class="card-text"><%= current_user.bio %></p>
-        <%= link_to "Edit Profile", "users/edit", class: "btn btn-round" %>
+<div class="container">
+  <div class="row d-flex mt-4">
+    <div class="card col-5 justify-content-center align-items-center" style="background-color: #0B0C10;">
+      <div class="card-profile">
+      <img class="card-img-top" src="
+          <% if current_user.photo.blank? %>
+            https://clipartart.com/images/login-background-images-clipart-1.jpg
+          <% else %>
+            <%= cl_image_path current_user.photo.key, width: 250, height: 300, crop: :fill%>
+          <% end %>
+          " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">BIO</h5>
+          <p class="card-text"><%= current_user.bio %></p>
+          <%= link_to "Edit Profile", "users/edit", class: "btn btn-outline-spacegreen" %>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="profile-info col-5 justify-content-center align-items-center">
-    <h1><%= current_user.first_name + current_user.last_name%></h1>
-    <h2>== Recently Seen ==</h2>
-    <br>
+    <div class="profile-info col-5 justify-content-center align-items-center">
+      <h1><%= current_user.first_name + current_user.last_name%></h1>
+      <h2>== Recently Seen ==</h2>
+      <br>
 
 
-  </div>
-  <div class="links col-1 justify-content-center align-items-center mt-4">
-    <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-round" %>
+    </div>
+    <div class="links col-1 justify-content-center align-items-center mt-4">
+      <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-outline-spacegreen" %>
+    </div>
   </div>
 </div>
 
