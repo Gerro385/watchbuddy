@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+=begin
 require "rest-client"
 
 
@@ -601,4 +601,71 @@ Medium.create(
   first_air_date: first_air_date,
   last_air_date: medium["last_air_date"],
   poster: "http://image.tmdb.org/t/p/w500///" + medium["poster_path"],
+)
+=end
+
+User.create!(
+  email: "max@mustermann.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Max",
+  last_name: "Mustermann"
+)
+
+User.create!(
+  email: "Tom@mustermann.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Tom",
+  last_name: "Mustermann"
+)
+
+User.create!(
+  email: "Lisa@mustermann.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Lisa",
+  last_name: "Mustermann"
+)
+
+
+
+User.create!(
+  email: "bernd@brot.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Bernd",
+  last_name: "Brot"
+)
+
+User.create!(
+  email: "Bernd@keinbrot.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Bernd",
+  last_name: "Keinbrot"
+)
+
+User.create!(
+  email: "Michelle@nice.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Michelle",
+  last_name: "Mitch"
+)
+
+User.create!(
+  email: "Michelle@niice.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Michelle",
+  last_name: "Mampf"
+)
+
+User.create!(
+  email: "Gerri@nice.com",
+  password: "666666",
+  password_confirmation: "666666",
+  first_name: "Gerri",
+  last_name: "Mampf"
 )
