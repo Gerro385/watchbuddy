@@ -8,15 +8,15 @@ class RequestsController < ApplicationController
   end
 
   def update
-    @request = Request.find(params[:id])
+    @request = authorize Request.find(params[:id])
     @request[:status] = params[:confirmation]
     @request.save
-    redirect_to user_buddies_path
+    redirect_to profile_buddies_path
   end
 
   def destroy
-    @request = Request.find(params[:id])
+    @request = authorize Request.find(params[:id])
     @request.destroy
-    redirect_to user_buddies_path
+    redirect_to profile_buddies_path
   end
 end
