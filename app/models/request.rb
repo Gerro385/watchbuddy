@@ -1,4 +1,6 @@
 class Request < ApplicationRecord
+enum status: %i[pending accepted declined]
+
   validates :users_are_not_yet_friends
 
   def users_are_not_yet_friends
