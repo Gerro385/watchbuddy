@@ -26,7 +26,7 @@ const fetchMedia = (query) => {
             const title = document.querySelector("#media-name");
             title.innerText = name;
             const mediaDate = document.querySelector("#media-date");
-            mediaDate.innerText = date;
+            mediaDate.innerText = date.substring(0,4);
             const mediaRating = document.querySelector("#media-rating");
             mediaRating.innerText = rating;
           };
