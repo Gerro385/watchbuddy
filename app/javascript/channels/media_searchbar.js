@@ -13,7 +13,7 @@ const fetchMedia = (query) => {
           if (result.media_type != "person") {
             const name = result.title ? result.title : result.name;
             const date = result.release_date ? result.release_date : result.first_air_date;
-            const rating = result.vote_average ? `Rating: ${result.vote_average}` : 'No rating';
+            const rating = result.vote_average ? `★ ${result.vote_average}` : 'No rating';
             const medium = form.innerHTML; // takes the inner html of the template in navbar
             results.insertAdjacentHTML("afterbegin", medium); // puts the template html in the ul
             const newForm = document.querySelector(".media-form"); // query for the template to actually have access to the html inside
