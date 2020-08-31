@@ -32,9 +32,10 @@
           <p class="card-text">Rating <%= medium.rating %></p>
         </div>
           </a>
-                <%= link_to cl_image_tag("icons8-rating-50_qdurtw"), like_path(medium), class: "button-favorite position-absolute" %>
-              </div>
-          <% end %>
+            <% image_tag = medium.watches.first&.favourite ? "diamond-heart-filled" : "diamond-heart-empty" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "btn button-favorite position-absolute" %>
+          </div>
+        <% end %>
       </div>
   </div>
 </div>
