@@ -28,8 +28,12 @@
   width: 30px;
   opacity: 1;
   bottom: 35px;
-  right: 40px;
+  right: 35px;
   z-index: 1000;
+
+  img {
+    height: 40px;
+  }
 
 }
 
@@ -102,6 +106,7 @@
 }
 
 .card-buddy {
+  position: relative;
   overflow: hidden;
   height: 120px;
   background: white;
@@ -111,6 +116,18 @@
   align-items: center;
   background-color: #0B0C10;
   border: 1px solid white;
+}
+
+.card-buddy {
+  a {
+    img{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 20px;
+    bottom: 27px;
+    }
+  }
 }
 
 .card-buddy img {
@@ -130,11 +147,8 @@
   padding: 0px;
   display: flex;
   align-items: center;
-  .btn-outline-spacegreen {
-    position: absolute;
-    right: 20px;
-  }
 }
+
 
 
 

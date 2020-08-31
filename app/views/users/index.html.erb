@@ -23,7 +23,7 @@
              <% end %>
         <div class="card-buddy-infos d-flex">
           <h2><%= user.first_name %> <%= user.last_name %></h2>
-          <a href="#" class="btn btn-outline-spacegreen">Add Buddy</a>
+          <%= link_to cl_image_tag("buddy-empty") %>
         </div>
       </div>
       <% end %>
