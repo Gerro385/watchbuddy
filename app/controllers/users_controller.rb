@@ -19,6 +19,5 @@ class UsersController < ApplicationController
   end
 
   def buddies
-    @user = authorize current_user
   end
 end

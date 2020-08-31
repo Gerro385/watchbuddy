@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_143903) do
+ActiveRecord::Schema.define(version: 2020_08_31_082147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 2020_08_27_143903) do
     t.string "poster"
     t.date "first_air_date"
     t.date "last_air_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
