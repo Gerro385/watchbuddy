@@ -1,1 +1,17 @@
 <h1>Here should be all your Buddies</h1>
+
+<div class="row justify-content-center">
+      <% @buddies.each do |buddy| %>
+      <div class="card-buddy col-7 mt-3">
+             <% if buddy.photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
+             <% else %>
+                <%= cl_image_path buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+             <% end %>
+        <div class="card-buddy-infos d-flex">
+          <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
+          <a href="#" class="btn btn-outline-spacegreen">Add Buddy</a>
+        </div>
+      </div>
+      <% end %>
+</div>

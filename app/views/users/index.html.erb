@@ -16,10 +16,10 @@
     <% if params[:query].present? %>
       <% @users.each do |user| %>
       <div class="card-buddy col-7 mt-3">
-             <% if current_user.photo.blank? %>
+             <% if user.photo.blank? %>
                 <%= cl_image_tag("avatar-default", :radius=>50) %>
              <% else %>
-                <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+                <%= cl_image_path user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
              <% end %>
         <div class="card-buddy-infos d-flex">
           <h2><%= user.first_name %> <%= user.last_name %></h2>
