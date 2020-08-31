@@ -28,8 +28,12 @@
   width: 30px;
   opacity: 1;
   bottom: 35px;
-  right: 40px;
+  right: 35px;
   z-index: 1000;
+
+  img {
+    height: 40px;
+  }
 
 }
 
@@ -172,4 +176,12 @@
   align-items: center;
   background-color: #0B0C10;
   border: 1px solid white;
+}
+.card-trip-infos {
+  a {
+    img {
+    height: 55px;
+    margin-left: 10px;
+    }
+  }
 }

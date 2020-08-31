@@ -16,16 +16,19 @@
     <% if params[:query].present? %>
       <% @users.each do |user| %>
       <div class="card-buddy col-7 mt-3">
-        <img class src="
-             <% if current_user.photo.blank? %>
-                https://clipartart.com/images/login-background-images-clipart-1.jpg
+             <% if user.photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
              <% else %>
-                <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+                <%= cl_image_path user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
              <% end %>
-            " alt="Card image cap"/>
         <div class="card-buddy-infos d-flex">
           <h2><%= user.first_name %> <%= user.last_name %></h2>
-          <%= link_to cl_image_tag("buddy-empty") %>
+          <% fetch = Request.find_by(sender_id: current_user.id, receiver_id: user.id).present? || Request.find_by(sender_id: user.id, receiver_id: current_user.id) %>
+          <% if fetch.nil? %>
+            <%= link_to cl_image_tag("buddy-empty"), user_requests_path(user), method: :post %>
+          <% else %>
+            <a><%= cl_image_tag("buddy-filled") %></a>
+          <% end %>
         </div>
       </div>
       <% end %>

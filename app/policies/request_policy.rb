@@ -7,7 +7,7 @@ class RequestPolicy < ApplicationPolicy
     true
   end
 
-  def buddies?
+  def destroy?
     true
   end
 
