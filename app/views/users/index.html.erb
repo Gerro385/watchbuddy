@@ -16,13 +16,11 @@
     <% if params[:query].present? %>
       <% @users.each do |user| %>
       <div class="card-buddy col-7 mt-3">
-        <img class src="
              <% if current_user.photo.blank? %>
-                https://clipartart.com/images/login-background-images-clipart-1.jpg
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
              <% else %>
                 <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
              <% end %>
-            " alt="Card image cap"/>
         <div class="card-buddy-infos d-flex">
           <h2><%= user.first_name %> <%= user.last_name %></h2>
           <a href="#" class="btn btn-outline-spacegreen">Add Buddy</a>
