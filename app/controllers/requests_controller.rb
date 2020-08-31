@@ -1,10 +1,12 @@
 class RequestsController < ApplicationController
   def create
+    session[:return_to] = request.referer
     sender = current_user
-    receiver = User.find(params[:id])
+    receiver = User.find(params[:user_id])
     @request = Request.new(sender_id: sender.id, receiver_id: receiver.id)
     authorize @request
     @request.save
+    redirect_to session.delete(:return_to)
   end
 
   def update

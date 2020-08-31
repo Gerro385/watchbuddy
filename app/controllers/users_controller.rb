@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @user = current_user
     @users = policy_scope(User).all
 
     if params[:query].present?
