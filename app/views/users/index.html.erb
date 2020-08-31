@@ -1,7 +1,4 @@
 <div class="container">
-  <h1>Search for buddies! 🚹 🚺 </h1>
-  <br>
-  <p>======  add search engine here  =======</p>
 
   <div class="d-flex barframe my-3 justify-content-center">
     <%= form_tag users_path, method: :get, class: "form-inline searchbar" do %>
@@ -15,9 +12,24 @@
       </div>
     <% end %>
   </div>
-
-  <% @users.each do |user| %>
-   <p><%= user.email %></p>
-   <% end %>
-
+  <div class="row justify-content-center">
+    <% if params[:query].present? %>
+      <% @users.each do |user| %>
+      <div class="card-buddy col-7 mt-3">
+        <img class src="
+             <% if current_user.photo.blank? %>
+                https://clipartart.com/images/login-background-images-clipart-1.jpg
+             <% else %>
+                <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+             <% end %>
+            " alt="Card image cap"/>
+        <div class="card-buddy-infos d-flex">
+          <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <a href="#" class="btn btn-outline-spacegreen">Add Buddy</a>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+
