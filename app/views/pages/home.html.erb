@@ -2,8 +2,8 @@
   <div class= "mt-2">
     <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>MOVIES</strong></h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
-    <% media = Medium.where(media_type: "movie") %>
-    <% media.sample(4).each do |medium| %>
+<!--     <% media = Medium.where(media_type: "movie") %> -->
+    <% @media.sample(4).each do |medium| %>
     <div class="movieposter position-relative">
       <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
         <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
@@ -12,7 +12,10 @@
           <p class="card-text">Rating <%= medium.rating %></p>
         </div>
       </a>
-      <%= link_to cl_image_tag("icons8-rating-50_qdurtw"), like_path(medium), class: "btn button-favorite position-absolute" %>
+        <% medium.watches.each do |watch| %>
+         <% image_tag = watch.favourite ? "diamond-heart-filled" : "diamond-heart-empty" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "btn button-favorite position-absolute" %>
+        <% end %>
       </div>
     <% end %>
   </div>

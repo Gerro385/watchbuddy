@@ -10,10 +10,12 @@ channels.keys().forEach(channels)
 document.addEventListener("turbolinks:load", () => {
   const form = document.querySelector('#search-media');
   const results = document.querySelector("#results");
-  form.addEventListener('keyup', (event) => {
-    event.preventDefault();
-    results.innerHTML = "";
-    // const input = document.querySelector('#search-input');
-    fetchMedia(form.value);
-  });
+  if (form) {
+    form.addEventListener('keyup', (event) => {
+      event.preventDefault();
+      results.innerHTML = "";
+      // const input = document.querySelector('#search-input');
+      fetchMedia(form.value);
+    });
+  }
 });
