@@ -1,4 +1,8 @@
 class WatchesController < ApplicationController
+  # layout false, only: :favourite
+  # layout "application", :except => :favourite
+
+
   def index
     @watches = policy_scope(Watch).all
   end
@@ -20,11 +24,15 @@ class WatchesController < ApplicationController
     @watch.toggle(:favourite)
     @watch.save
 
-    if params[:show].present?
-      redirect_to medium_path(@medium)
-    else
-      redirect_to root_path
+    respond_to do |format|
+      format.html { redirect_to medium_path(@medium) }
+      format.json { render json: { is_saved: @watch.favourite } }
     end
+    # if params[:show].present?
+    #   redirect_to medium_path(@medium)
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   def destroy
