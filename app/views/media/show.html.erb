@@ -1,6 +1,6 @@
 <div class="container" style="margin-top: 50px">
   <div class="d-flex border">
-      <div class="card-trip rounded" style="width: -webkit-fill-available;">
+      <div class="card-trip rounded" style="width: 350px;">
           <img class="card-img-show" src="<%= @medium.poster %>">
       </div>
       <div class="card-trip-infos border">
@@ -9,25 +9,31 @@
             <div class="d-flex justify-content-between">
               <h1 class="card-title"><%= @medium.title %><%= link_to cl_image_tag("icons8-rating-50_qdurtw"), like_path(@medium, show: true), class: "btn button-favorite-show" %> </h1>
               <div class="text-right">
-              <p class="card-text">Rating: <%= @medium.rating %></p>
-              <p class="card-text"><small class="text-muted">Time: <%= @medium.runtime %> minutes</small></p>
+              <p class="card-text"><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" alt="star"> <%= @medium.rating %></p>
+              <p class="card-text"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
               </div>
             </div>
             <div class="row mb-3">
               <div class="col-2"><strong>
                 <p class="card-text">Language:</p>
-                <p class="card-text">Countries:</p>
+                <p class="card-text">Made in:</p>
                 <p class="card-text">Genres:</p>
-                <p class="card-text">Released:</p>
+                <p class="card-text"><%="Released:" if @medium.media_type !="tv" %></p>
+                <p class="card-text"><%="On Air:" if @medium.media_type =="tv" %></p>
+                <p class="card-text"><%="Seasons:" if @medium.total_seasons %></p>
+                <p></p>
               </strong></div>
               <div class="col">
                 <p class="card-text"><%= @medium.language %></p>
                 <p class="card-text"><%= @medium.origin_countries.join(", ") %></p>
                 <p class="card-text"><%= @medium.genres.join(", ") %></p>
-                <p class="card-text"><%= @medium.first_air_date.strftime("%d %B %Y") %></p>
+                <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") if @medium.media_type !="tv" %></p>
+                <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") + " - " + @medium.last_air_date.strftime("%B %Y") if  @medium.media_type =="tv" %></p>
+                <p class="card-text"><%= @medium.total_seasons if @medium.total_seasons %></p>
               </div>
             </div>
-            <p class="card-text"><%= @medium.description %></p>
+            <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
+            <p class="card-text"><%= @medium.description.slice(0..500) + dots %></p>
           </div>
         </div>
       </div>

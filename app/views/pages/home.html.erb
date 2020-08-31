@@ -1,6 +1,6 @@
 <div class="container d-flex">
   <div class= "mt-2">
-    <h1 class= "ml-3 mt-4 mb-3" style="text-align: center"><strong>YOUR MOVIES</strong></h1>
+    <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>MOVIES</strong></h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
 <!--     <% media = Medium.where(media_type: "movie") %> -->
     <% @media.sample(4).each do |medium| %>
@@ -20,7 +20,7 @@
   </div>
   </div>
   <div class= "mt-2">
-    <h1 class= "ml-3 mt-4 mb-3" style="text-align: center"><strong>YOUR SERIES</strong></h1>
+    <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>SERIES</strong></h1>
     <div class="container d-flex flex-row flex-wrap justify-content-center">
         <% media = Medium.where(media_type: "tv") %>
         <% media.sample(4).each do |medium| %>
@@ -32,11 +32,12 @@
           <p class="card-text">Rating <%= medium.rating %></p>
         </div>
           </a>
-                <%= link_to cl_image_tag("icons8-rating-50_qdurtw"), like_path(medium), class: "btn button-favorite position-absolute" %>
+                <%= link_to cl_image_tag("icons8-rating-50_qdurtw"), like_path(medium), class: "button-favorite position-absolute" %>
               </div>
           <% end %>
       </div>
   </div>
 </div>
+<h1 class="mt-5" style="text-align: center;"><strong>YOUR RECOMMENDATIONS of the day</strong></h1>
 
 <!--      <button type="button" class="btn btn-outline-spacegreen">Rate Me</button> -->

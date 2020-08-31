@@ -1,6 +1,33 @@
 <div class="container">
-  <h1>Search for buddies! 🚹 🚺 </h1>
-<br>
-  <p>======  add search engine here  =======</p>
 
+  <div class="d-flex barframe my-3 justify-content-center">
+    <%= form_tag users_path, method: :get, class: "form-inline searchbar" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control", id:"searchbar",
+      placeholder: "🔍 Find new buddies!"
+      %>
+      <div class="child">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <% if params[:query].present? %>
+      <% @users.each do |user| %>
+      <div class="card-buddy col-7 mt-3">
+             <% if user.photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
+             <% else %>
+                <%= cl_image_path user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+             <% end %>
+        <div class="card-buddy-infos d-flex">
+          <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <%= link_to cl_image_tag("buddy-empty") %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
+

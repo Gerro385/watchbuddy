@@ -2,6 +2,12 @@
   border-color: $electricblue;
   color: $electricblue;
   border-radius: 1px;
+  transition: opacity 0.3s ease;
+}
+.btn-outline-spacegreen:hover {
+  opacity: 1;
+  color: #45A29E;
+  transform: scale(1.05);
 }
 
 .btn-round {

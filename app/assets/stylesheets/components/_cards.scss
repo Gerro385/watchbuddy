@@ -1,6 +1,6 @@
 .card-img-show {
   height: 500px;
-  width: 400px;
+  width: 350px;
 }
 
 .card .popup {
@@ -15,6 +15,10 @@
 
 .card .popup p {
   color: $grey;
+}
+
+.card-text img {
+  height: 25px;
 }
 
 .movieposter .button-favorite {
@@ -100,3 +104,59 @@
   align-items: flex-end;
   position: relative;
 }
+
+.card-buddy {
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  background-color: #0B0C10;
+  border: 1px solid white;
+}
+
+.card-buddy {
+  a {
+    img{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    right: 20px;
+    bottom: 27px;
+    }
+  }
+}
+
+.card-buddy img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-buddy h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.card-buddy .card-buddy-infos {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+}
+
+
+.card-profile {
+  width: 18rem;
+  background-color: #0B0C10;
+  position: relative;
+  .btn-outline-spacegreen {
+    position: absolute;
+    right: 0px;
+  }
+}
+
