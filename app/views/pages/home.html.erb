@@ -14,7 +14,7 @@
       </a>
         <% medium.watches.each do |watch| %>
          <% image_tag = watch.favourite ? "diamond-heart-filled" : "diamond-heart-empty" %>
-            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "button-favorite position-absolute" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "btn button-favorite position-absolute" %>
         <% end %>
       </div>
     <% end %>
