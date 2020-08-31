@@ -6,6 +6,8 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @seen = Watch.where(user: current_user, seen: true)
+    # @medium = Medium.find(params[:id])
   end
 
   def watchlist
