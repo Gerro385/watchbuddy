@@ -10,7 +10,11 @@
              <% end %>
         <div class="card-buddy-infos d-flex">
           <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
-          <a href="#" class="btn btn-outline-spacegreen">Add Buddy</a>
+          <a href="#" class="btn btn-outline-spacegreen">Delete Buddy</a>
+          <!--
+           link_to "Delete Buddy", user_request_path,() method: :delete, class:"btn btn-outline-spacegreen", remote: true 
+           put pe cones around that sheyt
+          -->
         </div>
       </div>
       <% end %>
