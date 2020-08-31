@@ -11,8 +11,8 @@ Rails.application.routes.draw do
     resources :watches, only: %i[index create update destroy]
     get '/watchlist', to: 'users#watchlist'
     get '/seen', to: 'users#seen'
-    get '/buddies', to: 'users#buddies'
+    get '/buddies', to: 'requests#buddies'
+    post '/request', to: 'requests#create'
   end
-    get '/like/:medium_id', to: 'watches#favourite', as: 'like'
-
+  get '/like/:medium_id', to: 'watches#favourite', as: 'like'
 end
