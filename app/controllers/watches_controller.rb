@@ -32,10 +32,6 @@ class WatchesController < ApplicationController
     @watch.destroy
   end
 
-  def seen
-    @watches.where(user: current_user, seen: true)
-  end
-
   private
 
   def set_watch

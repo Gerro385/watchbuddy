@@ -20,18 +20,18 @@
       <h1><%= current_user.first_name + current_user.last_name%></h1>
       <br>
 
-      <h2> Recently Seen </h2>
+      <h2> Recently seen </h2>
       <div class="row justify-content-center">
         <% if @seen %>
           <% @seen.each do |watch| %>
-          <div class="card-buddy">
-            <img class="card-img-show" src="<%= watch.medium.poster %>">
-            <div class="card-buddy-infos d-flex">
-               <%= watch.medium.rating %>
-              <h2><%#= user.first_name %> <%#= user.last_name %></h2>
-              <%#= link_to cl_image_tag("buddy-empty") %>
+           <a class="card-seen" href="<%= medium_path(watch.medium) %>">
+            <img class="card-img-seen" src="<%= watch.medium.poster %>">
+            <div class="card-seen-infos d-flex">
+               <%= watch.medium.title %>
+               <strong><%= watch.medium.rating %></strong>
+               <%= watch.created_at.strftime("%e %B %Y")%>
             </div>
-          </div>
+          </a>
           <% end %>
         <% end %>
       </div>
