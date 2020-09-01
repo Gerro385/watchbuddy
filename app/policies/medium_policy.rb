@@ -21,6 +21,10 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+  def rate?
+    true
+  end
+
   def create?
     true
   end

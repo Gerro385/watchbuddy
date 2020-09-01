@@ -9,6 +9,13 @@ class MediaController < ApplicationController
     # media is the db
     # display instance
     @medium = authorize Medium.find(params[:id])
+    if !@medium.watches.empty?
+      @watch = Watch.where(user: current_user, medium: @medium).first
+    else
+      @watch = Watch.new
+      @watch.user = current_user
+      @watch.medium = @medium
+    end
   end
 
   def create

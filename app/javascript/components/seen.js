@@ -1,4 +1,3 @@
-
 // let popup = document.querySelector(".popup");
 export const setSeenButtons = () => {
   const seenButtons = document.querySelectorAll(".button-tick");
