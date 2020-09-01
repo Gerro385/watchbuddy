@@ -1,3 +1,58 @@
+<div class="container">
+  <div class="row d-flex mt-4">
+    <div class="card col-4 align-items-center">
+      <div class="card-profile">
+      <img class="card-img-top" src="
+          <% if @user.photo.blank? %>
+            https://clipartart.com/images/login-background-images-clipart-1.jpg
+          <% else %>
+            <%= cl_image_path @user.photo.key, width: 250, height: 300, crop: :fill%>
+          <% end %>
+          " alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">About me</h5>
+          <p class="card-text"><%= @user.bio %></p>
+        </div>
+      </div>
+    </div>
+    <div class="profile-info col-7 justify-content-center align-items-center">
+      <div class="name d-flex w-100 justify-content-between mb-3">
+      <h1><strong><%= @user.first_name + " " + @user.last_name%></strong></h1>
+      <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-outline-spacegreen d-flex align-items-center" %>
+      </div>
 
-<%= link_to "Watchlist", user_watchlist_path(current_user), class: "" %>
+      <h2> Recently watched </h2>
+      <div class="row mt-3 mb-3">
+        <% if @seen %>
+          <% @seen.each do |watch| %>
+          <div class="col-3">
+          <%= render "profile_card", watch: watch %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h2> My favourite movies</h2>
+      <div class="row mt-3 mb-3">
+        <% if @favourite_movies %>
+          <% @favourite_movies[0..3].each do |watch| %>
+          <div class="col-3">
+          <%= render "profile_card", watch: watch %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h2> My favourite series</h2>
+      <div class="row mt-3">
+        <% if @favourite_series %>
+          <% @favourite_series[0..3].each do |watch| %>
+          <div class="col-3">
+          <%= render "profile_card", watch: watch %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
