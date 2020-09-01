@@ -14,10 +14,11 @@
       </a>
         <!-- the and sign is the safe navigator operator, only runs if what comes before is not nil -->
         <% image_tag = medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
-        <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "button-favorite position-absolute" %>
+        <%= link_to cl_image_tag(image_tag), like_path(medium), { :id => "#{medium.id}", :class => "button-favorite position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'favorite' }  %>
         <% image_tag = medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
-        <%= link_to cl_image_tag(image_tag), watchlist_path(medium), id: "#{medium.id}" , class: "button-watchlist position-absolute" %>
+        <%= link_to cl_image_tag(image_tag), watchlist_path(medium), { :id => "#{medium.id}", :class => "button-watchlist position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'watchlist' } %>
       </div>
+     <!--  tippy.js -->
     <% end %>
   </div>
   </div>
@@ -35,9 +36,9 @@
         </div>
           </a>
             <% image_tag = medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
-            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "button-favorite position-absolute" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), { :id => "#{medium.id}", :class => "button-favorite position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'favorite' } %>
             <% image_tag = medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
-            <%= link_to cl_image_tag(image_tag), watchlist_path(medium), id: "#{medium.id}" , class: "button-watchlist position-absolute" %>
+            <%= link_to cl_image_tag(image_tag), watchlist_path(medium), { :id => "#{medium.id}", :class => "button-watchlist position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'watchlist' } %>
           </div>
         <% end %>
       </div>

@@ -11,27 +11,14 @@
   width: 100%;
   padding: 10px;
   font-size: 14px;
-}
 
-.card .popup p {
-  color: $grey;
+    p {
+      color: $grey;
+    }
 }
 
 .card-text img {
   height: 25px;
-}
-
-.movieposter .button-favorite {
-  display: none;
-  position: relative;
-  opacity: 1;
-  bottom: 35px;
-  right: 35px;
-  z-index: 1000;
-
-  img {
-    height: 35px;
-  }
 }
 
 .button-tick {
@@ -40,6 +27,8 @@
   opacity: 1;
 
 }
+
+// homepage cards
 
 .movieposter {
   transition: all 0.4s ease-in-out;
@@ -58,26 +47,25 @@
       width: 30px;
     }
   }
-}
-.movieposter-profile {
-  transition: all 0.2s ease-in-out;
-  .card-title {
-    font-size: 12px;
-    align-items: center;
-  }
-  .popup {
-    height: 50px;
-  }
-  &:hover {
-    display: block;
-    z-index: 99;
-    transform: scale(1.1);
 
-    .popup {
-      display: block;
+  .button-favorite {
+  display: none;
+  position: relative;
+  opacity: 1;
+  bottom: 35px;
+  right: 35px;
+  z-index: 1000;
+
+    img {
+      height: 35px;
     }
   }
+
+    p .notification {
+      display: none;
+    }
 }
+
 
 .movieposter:hover {
   display: block;
@@ -108,9 +96,34 @@
 
   }
 }
+
+
+// profilecard
+
+.movieposter-profile {
+  transition: all 0.2s ease-in-out;
+  .card-title {
+    font-size: 12px;
+    align-items: center;
+  }
+  .popup {
+    height: 50px;
+  }
+  &:hover {
+    display: block;
+    z-index: 99;
+    transform: scale(1.1);
+
+    .popup {
+      display: block;
+    }
+  }
+}
+
 .card {
   background-color: $smokeyblack;
 }
+
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -203,11 +216,6 @@
     right: 0px;
   }
 }
-.card-seen img {
-  height: 150px;
-  width: 100px;
-  object-fit: cover;
-}
 
 .card-seen {
   position: relative;
@@ -220,7 +228,14 @@
   align-items: center;
   background-color: $smokeyblack;
   border: 1px solid white;
+
+  img {
+      height: 150px;
+      width: 100px;
+      object-fit: cover;
+  }
 }
+
 .card-trip-infos {
   .button-favorite {
       img {
