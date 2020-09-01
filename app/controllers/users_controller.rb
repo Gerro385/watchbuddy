@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def seen
+    @watches = Watch.where(user: params[:user_id], seen: true)
   end
 
   def buddies
