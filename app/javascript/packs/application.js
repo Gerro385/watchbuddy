@@ -42,4 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   setSeenButtons();
   giveRating();
   ratingSlide();
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 });

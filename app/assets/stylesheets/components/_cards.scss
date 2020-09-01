@@ -11,35 +11,17 @@
   width: 100%;
   padding: 10px;
   font-size: 14px;
-}
 
-.card .popup p {
-  color: $grey;
+    p {
+      color: $grey;
+    }
 }
 
 .card-text img {
   height: 25px;
 }
 
-.movieposter .button-favorite {
-  display: none;
-  position: relative;
-  opacity: 1;
-  bottom: 35px;
-  right: 35px;
-  z-index: 1000;
-
-  img {
-    height: 35px;
-  }
-}
-
-.button-tick {
-  height: 30px;
-  width: 30px;
-  opacity: 1;
-
-}
+// homepage cards
 
 .movieposter {
   transition: all 0.4s ease-in-out;
@@ -57,27 +39,30 @@
       height: 30px;
       width: 30px;
     }
-  }
-}
-.movieposter-profile {
-  transition: all 0.2s ease-in-out;
-  .card-title {
-    font-size: 12px;
-    align-items: center;
-  }
-  .popup {
-    height: 50px;
-  }
-  &:hover {
-    display: block;
-    z-index: 99;
-    transform: scale(1.1);
 
-    .popup {
-      display: block;
+    :hover {
+      filter: brightness(0.6);
     }
   }
+
+  .button-favorite {
+  display: none;
+  position: relative;
+  opacity: 1;
+  bottom: 35px;
+  right: 35px;
+  z-index: 1000;
+
+    img {
+      height: 35px;
+    }
+  }
+
+    p .notification {
+      display: none;
+    }
 }
+
 
 .movieposter:hover {
   display: block;
@@ -108,6 +93,33 @@
 
   }
 }
+
+
+// profilecard
+
+.movieposter-profile {
+  transition: all 0.2s ease-in-out;
+
+  .card-title {
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .popup {
+    height: 50px;
+  }
+
+  &:hover {
+    display: block;
+    z-index: 99;
+    transform: scale(1.1);
+
+    .popup {
+      display: block;
+    }
+  }
+}
+
 .card {
   background-color: $smokeyblack;
 }
@@ -116,6 +128,7 @@
     background-color: $electricblue;
     color: $smokeyblack;
   }
+
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -169,16 +182,18 @@
 
 .card-buddy {
   a {
-    img{
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    right: 20px;
-    bottom: 27px;
-    }
+    text-decoration: none;
+    color: inherit;
   }
 }
 
+.card-buddy {
+  .btn-outline-spacegreen {
+  position: absolute;
+  right: 20px;
+  align: center;
+  }
+}
 .card-buddy img {
   height: 100%;
   width: 120px;
@@ -201,18 +216,15 @@
 
 .card-profile {
   width: 18rem;
+  height: max-content;
   background-color: $smokeyblack;
   position: relative;
+  border: 1px solid white;
   .btn-outline-spacegreen {
     position: absolute;
-    right: 0px;
+    right: 10px;
+    bottom: 10px;
   }
-}
-
-.card-seen img {
-  height: 150px;
-  width: 100px;
-  object-fit: cover;
 }
 
 .card-seen {
@@ -226,18 +238,45 @@
   align-items: center;
   background-color: $smokeyblack;
   border: 1px solid white;
+
+  img {
+      height: 150px;
+      width: 100px;
+      object-fit: cover;
+  }
 }
+
 .card-trip-infos {
   .button-favorite {
       img {
       height: 45px;
       margin-left: 5px;
       }
+
+      :hover {
+      filter: brightness(0.6);
+    }
   }
   .button-watchlist {
       img {
-      height: 45px;
+      height: 40px;
       margin-left: -5px;
+      margin-right: 1px;
+      }
+
+      :hover {
+      filter: brightness(0.6);
+    }
+  }
+
+  .button-tick {
+    img {
+    height: 40px;
+    margin-left: -4px;
+    }
+
+      :hover {
+      filter: brightness(0.6);
       }
     }
 }
