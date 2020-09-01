@@ -24,15 +24,13 @@
 .movieposter .button-favorite {
   display: none;
   position: relative;
-  height: 30px;
-  width: 30px;
   opacity: 1;
   bottom: 35px;
   right: 35px;
   z-index: 1000;
 
   img {
-    height: 40px;
+    height: 35px;
   }
 }
 
@@ -48,6 +46,37 @@
   width: 220px;
   border-radius: 2px;
   margin: 4px;
+
+  .button-watchlist {
+    position: relative;
+    display: none;
+    right: 12px;
+    bottom: 12px;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+.movieposter-profile {
+  transition: all 0.2s ease-in-out;
+  .card-title {
+    font-size: 12px;
+    align-items: center;
+  }
+  .popup {
+    height: 50px;
+  }
+  &:hover {
+    display: block;
+    z-index: 99;
+    transform: scale(1.1);
+
+    .popup {
+      display: block;
+    }
+  }
 }
 
 .movieposter:hover {
@@ -64,15 +93,29 @@
     height: 30px;
     width: 30px;
     opacity: 1;
-    bottom: 35px;
-    right: 40px;
+    bottom: 13px;
+    right: 46px;
 
     :hover {
       filter: brightness(0.6);
     }
   }
+
+  .button-watchlist {
+    display: block;
+    right: 12px;
+    bottom: 12px;
+
+  }
+}
+.card {
+  background-color: $smokeyblack;
 }
 
+.name h1 {
+    background-color: $electricblue;
+    color: $smokeyblack;
+  }
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -120,7 +163,7 @@
   display: flex;
   padding: 0px;
   align-items: center;
-  background-color: #0B0C10;
+  background-color: $smokeyblack;
   border: 1px solid white;
 }
 
@@ -158,13 +201,14 @@
 
 .card-profile {
   width: 18rem;
-  background-color: #0B0C10;
+  background-color: $smokeyblack;
   position: relative;
   .btn-outline-spacegreen {
     position: absolute;
     right: 0px;
   }
 }
+
 .card-seen img {
   height: 150px;
   width: 100px;
@@ -180,16 +224,22 @@
   display: flex;
   padding: 0px;
   align-items: center;
-  background-color: #0B0C10;
+  background-color: $smokeyblack;
   border: 1px solid white;
 }
 .card-trip-infos {
-  a {
-    img {
-    height: 55px;
-    margin-left: 10px;
-    }
+  .button-favorite {
+      img {
+      height: 45px;
+      margin-left: 5px;
+      }
   }
+  .button-watchlist {
+      img {
+      height: 45px;
+      margin-left: -5px;
+      }
+    }
 }
 
 .rating-section {

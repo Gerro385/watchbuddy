@@ -1,11 +1,15 @@
 class Request < ApplicationRecord
   enum status: %i[pending accepted declined]
 
-  validate :users_are_not_yet_friends
+  validates :sender_id, uniqueness: { scope: :receiver_id }
+  validate :request_does_not_exist
+  validate :same_user
 
-  def users_are_not_yet_friends
-    if Request.where(sender_id: :sender_id, receiver_id: :receiver_id).exists? || Request.where(sender_id: :receiver_id, receiver_id: :sender_id).exists?
-      self.errors.add(:sender_id, 'Request already exists!')
-    end
+  def request_does_not_exist
+    errors.add(:sender_id, 'Request already exists!') if Request.find_by(sender_id: receiver_id, receiver_id: sender_id)
+  end
+
+  def same_user
+    errors.add(:sender_id, 'Same user') if sender_id == receiver_id
   end
 end
