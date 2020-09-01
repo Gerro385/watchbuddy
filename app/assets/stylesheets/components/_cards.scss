@@ -124,6 +124,11 @@
   background-color: $smokeyblack;
 }
 
+.name h1 {
+    background-color: $electricblue;
+    color: $smokeyblack;
+  }
+
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -251,3 +256,6 @@
     }
 }
 
+.rating-section {
+  min-width: 160px;
+}
