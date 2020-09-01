@@ -48,7 +48,19 @@ class WatchesController < ApplicationController
     end
   end
 
+  def rate
+    @medium = Medium.find(params[:medium_id])
+    authorize @medium
+    @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
+    raise
+    # @watch.rating = params
+    @watch.save!
 
+     respond_to do |format|
+     format.html { redirect_to medium_path(@medium) }
+     format.json { render json: { is_saved: @watch.rating } }
+     end
+  end
 
 
   def seen
