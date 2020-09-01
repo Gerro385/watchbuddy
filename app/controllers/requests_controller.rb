@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
 
   def update
     @request = authorize Request.find(params[:id])
-    @request[:status] = params[:confirmation]
+    @request.status = params[:confirmation]
     @request.save
     redirect_to profile_buddies_path
   end
