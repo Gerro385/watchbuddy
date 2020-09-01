@@ -214,11 +214,14 @@
 
 .card-profile {
   width: 18rem;
+  height: max-content;
   background-color: $smokeyblack;
   position: relative;
+  border: 1px solid white;
   .btn-outline-spacegreen {
     position: absolute;
-    right: 0px;
+    right: 10px;
+    bottom: 10px;
   }
 }
 
