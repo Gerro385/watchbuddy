@@ -182,16 +182,18 @@
 
 .card-buddy {
   a {
-    img{
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    right: 20px;
-    bottom: 27px;
-    }
+    text-decoration: none;
+    color: inherit;
   }
 }
 
+.card-buddy {
+  .btn-outline-spacegreen {
+  position: absolute;
+  right: 20px;
+  align: center;
+  }
+}
 .card-buddy img {
   height: 100%;
   width: 120px;
