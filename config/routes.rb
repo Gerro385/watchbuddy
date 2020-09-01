@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get '/like/:medium_id', to: 'watches#favourite', as: 'like'
   get '/watchlist/:medium_id', to: 'watches#watchlist', as: 'watchlist'
   get '/seen/:medium_id', to: 'watches#seen', as: 'seen'
+  get '/rate/:medium_id', to: 'watches#rate', as: 'rate'
 end

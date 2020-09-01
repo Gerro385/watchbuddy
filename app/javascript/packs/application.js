@@ -31,6 +31,8 @@ import "bootstrap";
 import { setFavouriteButtons }from '../components/buttons.js'
 import { setWatchlistButtons }from '../components/watchlist.js'
 import { setSeenButtons }from '../components/seen.js'
+import { giveRating }from '../components/rating.js'
+import { ratingSlide }from '../components/ratingSlider.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -38,4 +40,6 @@ document.addEventListener('turbolinks:load', () => {
   setFavouriteButtons();
   setWatchlistButtons();
   setSeenButtons();
+  giveRating();
+  ratingSlide();
 });

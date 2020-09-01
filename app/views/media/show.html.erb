@@ -20,7 +20,15 @@
               <div class="text-right rating-section">
                 <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
                 <p class="card-text">Friends <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
-                <p class="card-text">Your <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
+                <p class="card-text">Your <img id="your-rating" src="<%= @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"> <%= @watch.rating ? @watch.rating : " -   " %></p>
+                <div class="rating-popup d-none">
+                  <div class="d-flex flex-column align-items-center">
+                    <label for="ratingslide">Your Rating</label>
+                    <p id="rating" class="mb-1"><%= @medium.rating %></p>
+                    <input type="range" class="form-control-range" min="0" max="10" value="<%= @medium.rating %>" step="0.1" id="ratingslide">
+                    <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen" %>
+                  </div>
+                </div>
               </div>
             </div>
             <p class="card-text" style="margin-top: -50px;"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
