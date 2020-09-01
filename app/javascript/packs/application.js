@@ -29,9 +29,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 // import '../components/hovercards.js'
 import { setFavouriteButtons }from '../components/buttons.js'
+import { setSeenButtons }from '../components/seen.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   setFavouriteButtons();
+  setSeenButtons();
 });

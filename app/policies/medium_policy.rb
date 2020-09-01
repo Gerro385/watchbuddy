@@ -12,6 +12,10 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+  def seen?
+    true
+  end
+
   def create?
     true
   end
