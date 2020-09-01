@@ -7,19 +7,23 @@
         <div>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h1 class="card-title"><%= @medium.title %>
-                <% image_tag = @medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
-                <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), id: "#{@medium.id}" , class: "button-favorite" %>
-                <% image_tag = @medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
-                <%= link_to cl_image_tag(image_tag), watchlist_path(@medium, show: true), id: "#{@medium.id}" , class: "button-watchlist" %>
-                <% tick_image_tag = @medium.watches.first&.seen ? "pictograms/tick-filled" : "pictograms/tick-empty" %>
-                <%= link_to cl_image_tag(tick_image_tag), seen_path(@medium, show: true), id: "#{@medium.id}" , class: "button-tick" %>
-              </h1>
-              <div class="text-right">
-                <p class="card-text"><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" alt="star"> <%= @medium.rating %></p>
-                <p class="card-text"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
+              <div class="d-flex">
+                <h1 class="card-title"><%= @medium.title %>
+                  <% image_tag = @medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
+                  <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), id: "#{@medium.id}" , class: "button-favorite" %>
+                  <% image_tag = @medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
+                  <%= link_to cl_image_tag(image_tag), watchlist_path(@medium, show: true), id: "#{@medium.id}" , class: "button-watchlist" %>
+                  <% tick_image_tag = @medium.watches.first&.seen ? "pictograms/tick-filled" : "pictograms/tick-empty" %>
+                  <%= link_to cl_image_tag(tick_image_tag), seen_path(@medium, show: true), id: "#{@medium.id}" , class: "button-tick" %>
+                </h1>
+              </div>
+              <div class="text-right rating-section">
+                <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
+                <p class="card-text">Friends <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
+                <p class="card-text">Your <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
               </div>
             </div>
+            <p class="card-text" style="margin-top: -50px;"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
             <div class="row mb-3">
               <div class="col-2"><strong>
                 <p class="card-text">Language:</p>
@@ -44,6 +48,5 @@
           </div>
         </div>
       </div>
-
   </div>
 </div>
