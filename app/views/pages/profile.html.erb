@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row d-flex mt-4">
-    <div class="card col-5 justify-content-center align-items-center">
+    <div class="card col-5 align-items-center">
       <div class="card-profile">
       <img class="card-img-top" src="
           <% if current_user.photo.blank? %>
@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="profile-info col-7 justify-content-center align-items-center">
-      <div class="d-flex w-100 justify-content-between mb-3">
-      <h1><%= current_user.first_name + " " + current_user.last_name%></h1>
+      <div class="name d-flex w-100 justify-content-between mb-3">
+      <h1><strong><%= current_user.first_name + " " + current_user.last_name%></strong></h1>
       <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-outline-spacegreen d-flex align-items-center" %>
       </div>
 
