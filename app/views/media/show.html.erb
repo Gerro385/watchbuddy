@@ -32,7 +32,7 @@
                 <h3><i class="fas fa-globe-africa"></i></h3>
                 <h3><i class="fas fa-theater-masks"></i></h3>
                 <h3><i class="far fa-calendar-check"></i></h3>
-<!--                 <h3><i class="fas fa-sort-numeric-up-alt"></i><%= "" if @medium.total_seasons %></h3> -->
+<!--                 <h3><i class="fas fa-sort-numeric-up-alt"></i><%#= "" if @medium.total_seasons %></h3> -->
               </strong></div>
               <div class="col">
                 <p class="card-text"><%= @medium.language %></p>
@@ -40,7 +40,7 @@
                 <p class="card-text"><%= @medium.genres.join(", ") %></p>
                 <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") if @medium.media_type !="tv" %></p>
                 <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") + " - " + @medium.last_air_date.strftime("%B %Y") if  @medium.media_type =="tv" %></p>
-                <p class="card-text"><%= @medium.total_seasons "seasons" if @medium.total_seasons %></p>
+                <!-- <p class="card-text"><%#= @medium.total_seasons "seasons" if @medium.total_seasons %></p> -->
               </div>
             </div>
             <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
