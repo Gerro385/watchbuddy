@@ -43,6 +43,24 @@
   border-radius: 2px;
   margin: 4px;
 }
+.movieposter-profile {
+  transition: all 0.2s ease-in-out;
+  .card-title {
+    font-size: 12px;
+  }
+  .popup {
+    height: 70px;
+  }
+  &:hover {
+    display: block;
+    z-index: 99;
+    transform: scale(1.1);
+
+    .popup {
+      display: block;
+    }
+  }
+}
 
 .movieposter:hover {
   display: block;
@@ -185,3 +203,4 @@
     }
   }
 }
+

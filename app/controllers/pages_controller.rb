@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
     @seen = Watch.where(user: current_user, seen: true)
+    @favourites = Watch.where(user: current_user, favourite: true)
   end
 
   def watchlist
