@@ -20,14 +20,13 @@
                 <p class="card-text"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
               </div>
             </div>
-            <div class="row mb-3">
-              <div class="col-2 justify-content-center"><strong>
-                <h2><i class="fas fa-language"></i></h2>
+            <div class="row mb-3 ml-1">
+              <div class="col-1 justify-content-center"><strong>
+                <h3><i class="fas fa-language"></i></h3>
                 <h3><i class="fas fa-globe-africa"></i></h3>
                 <h3><i class="fas fa-theater-masks"></i></h3>
-                <h2><%="Released:" if @medium.media_type !="tv" %></h2>
-                <h3><i class="far fa-calendar-check"></i><%="" if @medium.media_type =="tv" %></h3>
-                <p class="card-text"><%="Seasons:" if @medium.total_seasons %></p>
+                <h2><i class="far fa-calendar-check"></i><%="" if @medium.media_type =="tv" %></h2>
+                <h3><i class="fas fa-sort-numeric-up-alt"></i><%="" if @medium.total_seasons %></h3>
                 <p></p>
               </strong></div>
               <div class="col">
@@ -36,7 +35,7 @@
                 <p class="card-text"><%= @medium.genres.join(", ") %></p>
                 <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") if @medium.media_type !="tv" %></p>
                 <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") + " - " + @medium.last_air_date.strftime("%B %Y") if  @medium.media_type =="tv" %></p>
-                <p class="card-text"><%= @medium.total_seasons if @medium.total_seasons %></p>
+                <p class="card-text"><%= @medium.total_seasons if @medium.total_seasons %> seasons</p>
               </div>
             </div>
             <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
