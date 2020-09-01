@@ -18,11 +18,11 @@
     </div>
     <div class="profile-info col-7 justify-content-center align-items-center">
       <div class="d-flex w-100 justify-content-between mb-3">
-      <h1><%= current_user.first_name + current_user.last_name%></h1>
+      <h1><%= current_user.first_name + " " + current_user.last_name%></h1>
       <%= link_to "Go to My Watchlist", "watchlist", class: "btn btn-outline-spacegreen d-flex align-items-center" %>
       </div>
 
-      <h2> Recently seen </h2>
+      <h2> Recently watched </h2>
       <div class="row mt-3 mb-3">
         <% if @seen %>
           <% @seen.each do |watch| %>
@@ -32,7 +32,7 @@
           <% end %>
         <% end %>
       </div>
-      <h2> My favourites </h2>
+      <h2> My favourite movies and shows </h2>
       <div class="row mt-3">
         <% if @favourites %>
           <% @favourites[0..3].each do |watch| %>
