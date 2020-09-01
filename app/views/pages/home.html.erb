@@ -13,8 +13,10 @@
         </div>
       </a>
         <!-- the and sign is the safe navigator operator, only runs if what comes before is not nil -->
-        <% image_tag = medium.watches.first&.favourite ? "diamond-heart-filled" : "diamond-heart-empty" %>
+        <% image_tag = medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
         <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "button-favorite position-absolute" %>
+        <% image_tag = medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
+        <%= link_to cl_image_tag(image_tag), watchlist_path(medium), id: "#{medium.id}" , class: "button-watchlist position-absolute" %>
       </div>
     <% end %>
   </div>
@@ -24,7 +26,7 @@
     <div class="container d-flex flex-row flex-wrap justify-content-center">
         <% media = Medium.where(media_type: "tv") %>
         <% media.sample(4).each do |medium| %>
-        <div class="movieposter">
+        <div class="movieposter position-relative">
           <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
         <div class="popup">
@@ -32,8 +34,10 @@
           <p class="card-text">Rating <%= medium.rating %></p>
         </div>
           </a>
-            <% image_tag = medium.watches.first&.favourite ? "diamond-heart-filled" : "diamond-heart-empty" %>
-            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "btn button-favorite position-absolute" %>
+            <% image_tag = medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), id: "#{medium.id}" , class: "button-favorite position-absolute" %>
+            <% image_tag = medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
+            <%= link_to cl_image_tag(image_tag), watchlist_path(medium), id: "#{medium.id}" , class: "button-watchlist position-absolute" %>
           </div>
         <% end %>
       </div>

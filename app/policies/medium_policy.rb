@@ -12,6 +12,10 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+  def watchlist?
+    true
+  end
+
   def create?
     true
   end

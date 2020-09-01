@@ -35,6 +35,24 @@ class WatchesController < ApplicationController
     # end
   end
 
+    def watchlist
+    @medium = Medium.find(params[:medium_id])
+    authorize @medium
+    @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
+    @watch.toggle(:watchlist)
+    @watch.save!
+
+    respond_to do |format|
+      format.html { redirect_to medium_path(@medium) }
+      format.json { render json: { is_saved: @watch.watchlist } }
+    end
+    # if params[:show].present?
+    #   redirect_to medium_path(@medium)
+    # else
+    #   redirect_to root_path
+    # end
+  end
+
   def destroy
     set_watch
     @watch.destroy

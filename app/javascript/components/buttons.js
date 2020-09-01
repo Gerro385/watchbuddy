@@ -20,8 +20,8 @@ const likeRequest = (id, button) => {
   })
 };
 
-const emptyHeart = "http://res.cloudinary.com/g385/image/upload/diamond-heart-empty"
-const filledHeart = "http://res.cloudinary.com/g385/image/upload/diamond-heart-filled"
+const emptyHeart = "http://res.cloudinary.com/g385/image/upload/pictograms/diamond-heart-empty"
+const filledHeart = "http://res.cloudinary.com/g385/image/upload/pictograms/diamond-heart-filled"
 
 const changeImage = (anchorElement, isFavourite) => {
   anchorElement.firstElementChild.src = isFavourite ? filledHeart : emptyHeart

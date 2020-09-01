@@ -24,15 +24,13 @@
 .movieposter .button-favorite {
   display: none;
   position: relative;
-  height: 30px;
-  width: 30px;
   opacity: 1;
   bottom: 35px;
   right: 35px;
   z-index: 1000;
 
   img {
-    height: 40px;
+    height: 35px;
   }
 
 }
@@ -42,6 +40,18 @@
   width: 220px;
   border-radius: 2px;
   margin: 4px;
+
+  .button-watchlist {
+    position: relative;
+    display: none;
+    right: 12px;
+    bottom: 12px;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
 
 .movieposter:hover {
@@ -58,12 +68,19 @@
     height: 30px;
     width: 30px;
     opacity: 1;
-    bottom: 35px;
-    right: 40px;
+    bottom: 13px;
+    right: 46px;
 
     :hover {
       filter: brightness(0.6);
     }
+  }
+
+  .button-watchlist {
+    display: block;
+    right: 12px;
+    bottom: 12px;
+
   }
 }
 
@@ -178,10 +195,16 @@
   border: 1px solid white;
 }
 .card-trip-infos {
-  a {
-    img {
-    height: 55px;
-    margin-left: 10px;
-    }
+  .button-favorite {
+      img {
+      height: 45px;
+      margin-left: 5px;
+      }
   }
+  .button-watchlist {
+      img {
+      height: 45px;
+      margin-left: -5px;
+      }
+    }
 }
