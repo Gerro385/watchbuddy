@@ -59,6 +59,25 @@
     }
   }
 }
+.movieposter-profile {
+  transition: all 0.2s ease-in-out;
+  .card-title {
+    font-size: 12px;
+    align-items: center;
+  }
+  .popup {
+    height: 50px;
+  }
+  &:hover {
+    display: block;
+    z-index: 99;
+    transform: scale(1.1);
+
+    .popup {
+      display: block;
+    }
+  }
+}
 
 .movieposter:hover {
   display: block;
@@ -216,3 +235,4 @@
       }
     }
 }
+
