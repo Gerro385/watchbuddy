@@ -38,4 +38,8 @@ document.addEventListener('turbolinks:load', () => {
   setFavouriteButtons();
   setWatchlistButtons();
   setSeenButtons();
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 });
+
