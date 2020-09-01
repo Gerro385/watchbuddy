@@ -22,6 +22,10 @@ class PagesController < ApplicationController
     @favourites = Watch.where(user: current_user, favourite: true)
   end
 
+  def seen
+    @watches = Watch.where(user: current_user, seen: true)
+  end
+
   def buddies
     @user = current_user
     sent = policy_scope(Request).where(sender_id: current_user.id, status: 1)
