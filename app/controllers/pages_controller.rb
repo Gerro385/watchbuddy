@@ -19,8 +19,10 @@ class PagesController < ApplicationController
   end
 
   def buddies
+    @user = current_user
     sent = policy_scope(Request).where(sender_id: current_user.id, status: 1)
-    received = policy_scope(Request).where(receiver_id: current_user.id, status: 1)
+    received = Request.where(receiver_id: current_user.id, status: 1)
     @buddies = sent.map { |request| [User.find_by(id: request.receiver_id), request.id] } + received.map { |request| [User.find_by(id: request.sender_id), request.id] }
+    @requests = Request.where(receiver_id: current_user, status: 0)
   end
 end

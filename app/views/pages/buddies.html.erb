@@ -1,17 +1,37 @@
 <h1>Here should be all your Buddies</h1>
-
-<div class="row justify-content-center">
-      <% @buddies.each do |buddy| %>
+<div class="d-flex align-items-center">
+  <div class="row justify-content-center">
+    <% @buddies.each do |buddy| %>
       <div class="card-buddy col-7 mt-3">
-             <% if buddy[0].photo.blank? %>
-                <%= cl_image_tag("avatar-default", :radius=>50) %>
-             <% else %>
-                <%= cl_image_path buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
-             <% end %>
+        <% if buddy[0].photo.blank? %>
+          <%= cl_image_tag("avatar-default", :radius=>50) %>
+        <% else %>
+          <%= cl_image_path buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+        <% end %>
         <div class="card-buddy-infos d-flex">
           <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
           <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn btn-outline-spacegreen" %>
         </div>
       </div>
-      <% end %>
+    <% end %>
+  </div>
+  <div class="m-2 border">
+    <% @requests.each do |request| %>
+      <% buddy = User.find(request.sender_id) %>
+      <div class="card" style="max-height: 100px">
+        <!-- <% if buddy.photo.blank? %>
+          <%= cl_image_tag("avatar-default", :radius=>50) %>
+        <% else %>
+          <%= cl_image_path buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+        <% end %> -->
+      </div>
+      <div class="card-buddy-infos d-flex">
+          <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
+          <% accept_path = user_request_path(@user, request) + '?confirmation=accepted' %>
+          <%= link_to "Accept", accept_path, method: :patch, class: "btn btn-danger btn-outline-spacegreen" %>
+          <% decline_path = user_request_path(@user, request) + '?confirmation=declined' %>
+          <%= link_to "Decline", decline_path, method: :patch, class: "btn btn-success btn-outline-spacegreen" %>
+        </div>
+    <% end %>
+  </div>
 </div>
