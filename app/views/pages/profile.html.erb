@@ -25,12 +25,15 @@
       <h2> Recently watched </h2>
       <div class="row mt-3 mb-3">
         <% if @seen %>
-          <% @seen.each do |watch| %>
+          <% @seen[0..3].each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
           <% end %>
         <% end %>
+        <div class="see-more">
+          <%= link_to "See more", "profile/seen", class: "btn btn-outline-spacegreen" %>
+        </div>
       </div>
       <h2> My favourite movies</h2>
       <div class="row mt-3 mb-3">
