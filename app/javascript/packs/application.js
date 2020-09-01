@@ -30,10 +30,12 @@ import "bootstrap";
 // import '../components/hovercards.js'
 import { setFavouriteButtons }from '../components/buttons.js'
 import { setWatchlistButtons }from '../components/watchlist.js'
+import { setSeenButtons }from '../components/seen.js'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   setFavouriteButtons();
   setWatchlistButtons();
+  setSeenButtons();
 });

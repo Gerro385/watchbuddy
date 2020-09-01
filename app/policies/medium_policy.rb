@@ -12,7 +12,12 @@ class MediumPolicy < ApplicationPolicy
     true
   end
 
+
   def watchlist?
+    true
+  end
+  
+  def seen?
     true
   end
 

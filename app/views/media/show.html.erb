@@ -12,10 +12,12 @@
                 <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), id: "#{@medium.id}" , class: "button-favorite" %>
                 <% image_tag = @medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
                 <%= link_to cl_image_tag(image_tag), watchlist_path(@medium, show: true), id: "#{@medium.id}" , class: "button-watchlist" %>
-                </h1>
+                <% tick_image_tag = @medium.watches.first&.seen ? "pictograms/tick-filled" : "pictograms/tick-empty" %>
+                <%= link_to cl_image_tag(tick_image_tag), seen_path(@medium, show: true), id: "#{@medium.id}" , class: "button-tick" %>
+              </h1>
               <div class="text-right">
-              <p class="card-text"><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" alt="star"> <%= @medium.rating %></p>
-              <p class="card-text"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
+                <p class="card-text"><img src="https://image.flaticon.com/icons/svg/1040/1040230.svg" alt="star"> <%= @medium.rating %></p>
+                <p class="card-text"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
               </div>
             </div>
             <div class="row mb-3">
