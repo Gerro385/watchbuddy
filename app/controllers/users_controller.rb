@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def seen
+    authorize current_user
     @watches = Watch.where(user: params[:user_id], seen: true)
   end
 

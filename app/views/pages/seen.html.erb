@@ -1,9 +1,12 @@
 <div class="container">
+  <div class="row justify-content-center mt-4">
+  <h1>All the media I have watched</h1>
+</div>
   <div class="row d-flex flex-fow mt-5">
-    <% @seen.each do |watch| %>
-      <a href="<%= medium_path(watch.medium) %>" class="cards col-6 my-2 text-decoration-none text-reset">
+    <% @watches.each do |watch| %>
+      <a href="<%= medium_path(watch.medium) %>" class="cards col-4 my-2 text-decoration-none text-reset">
         <div class="d-flex card-fav justify-content-between">
-          <img src="<%= watch.medium.poster %>" style="max-height: 300px;"/>
+          <img src="<%= watch.medium.poster %>" style="max-height: 200px;"/>
           <div class="card-fav-infos">
             <div class="d-flex justify-content-between">
               <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
@@ -11,8 +14,8 @@
             </div>
             <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
             <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
-            <% watch.medium.description.length > 500 ? dots = "..." : dots = ""  %>
-            <p class="card-text"><%= watch.medium.description.slice(0..500) + dots %></p>
+            <% watch.medium.description.length > 100 ? dots = "..." : dots = ""  %>
+            <p class="card-text"><%= watch.medium.description.slice(0..100) + dots %></p>
           </div>
         </div>
       </a>
