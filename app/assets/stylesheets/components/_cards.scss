@@ -111,6 +111,11 @@
 .card {
   background-color: $smokeyblack;
 }
+
+.name h1 {
+    background-color: $electricblue;
+    color: $smokeyblack;
+  }
 .cards {
   display: grid;
   grid-gap: 16px;
@@ -203,6 +208,7 @@
     right: 0px;
   }
 }
+
 .card-seen img {
   height: 150px;
   width: 100px;
