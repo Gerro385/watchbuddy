@@ -5,39 +5,57 @@
     <div class="row d-flex align-items-center justify-content-center">
       <% @buddies.each do |buddy| %>
         <div class="card-buddy col-7 mt-3">
-        <%= link_to(user_path(buddy)) do %>
-          <% if buddy[0].photo.blank? %>
-            <%= cl_image_tag("avatar-default", :radius=>50) %>
-          <% else %>
-            <%= cl_image_path buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
-          <% end %>
-        <% end %>
-          <div class="card-buddy-infos d-flex">
-          <%= link_to(user_path(buddy)) do %>
-            <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
+          <div>
+            <%= link_to(user_path(buddy)) do %>
+              <% if buddy[0].photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
+              <% else %>
+                <%= cl_image_tag buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+              <% end %>
             <% end %>
-            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn btn-outline-spacegreen" %>
+          </div>
+          <div class="card-buddy-infos d-flex">
+            <div>
+              <%= link_to(user_path(buddy)) do %>
+                <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
+              <% end %>
+            </div>
+            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn removebtn btn-outline-spacegreen" %>
           </div>
         </div>
       <% end %>
     </div>
-    <div class="m-4 border">
+
+ <div class="row justify-content-center mt-4">
+  <h1>Requests</h1>
+</div>
+
+
+
+
+
+    <div class="row d-flex align-items-center justify-content-center">
       <% @requests.each do |request| %>
         <% buddy = User.find(request.sender_id) %>
-        <div class="card" style="max-height: 100px">
-          <!-- <% if buddy.photo.blank? %>
+          <div class="card-buddy col-7 mt-3">
+          <div>
+           <% if buddy.photo.blank? %>
             <%= cl_image_tag("avatar-default", :radius=>50) %>
           <% else %>
-            <%= cl_image_path buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
-          <% end %> -->
-        </div>
-        <div class="card-buddy-infos d-flex">
-            <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
-            <% accept_path = user_request_path(@user, request) + '?confirmation=accepted' %>
-            <%= link_to "Accept", accept_path, method: :patch, class: "btn btn-danger btn-outline-spacegreen" %>
-            <% decline_path = user_request_path(@user, request) + '?confirmation=declined' %>
-            <%= link_to "Decline", decline_path, method: :patch, class: "btn btn-success btn-outline-spacegreen" %>
+            <%= cl_image_tag buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+          <% end %>
           </div>
+          <div class="card-buddy-infos d-flex">
+            <div>
+              <%= link_to(user_path(buddy)) do %>
+                <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
+              <% end %>
+            </div>
+            <% accept_path = user_request_path(@user, request) + '?confirmation=accepted' %>
+            <%= link_to "Accept", accept_path, method: :patch, class: "btn  removebtn btn-outline-spacegreen" %>
+            <% decline_path = user_request_path(@user, request) + '?confirmation=declined' %>
+            <%= link_to "Decline", decline_path, method: :patch, class: "btn removebtn decline btn-outline-spacegreen" %>
+          </div>
+        </div>
       <% end %>
     </div>
-</div>

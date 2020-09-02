@@ -211,6 +211,19 @@
   padding: 0px;
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
+    img{
+      height: 50px;
+      width: 50px;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+    a {
+      height: 60px;
+      width: 60px;
+      z-index: 100;
+    }
 }
 
 
