@@ -25,35 +25,41 @@
       <h2> Recently watched </h2>
       <div class="row mt-3 mb-3">
         <% if @seen %>
-          <% @seen[0..3].each do |watch| %>
+          <% @seen[0..2].each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
           <% end %>
         <% end %>
-        <div class="see-more">
+        <div class="d-flex align-items-end justify-content-center col-3 see-more">
           <%= link_to "See more", "profile/seen", class: "btn btn-outline-spacegreen" %>
         </div>
       </div>
       <h2> My favourite movies</h2>
       <div class="row mt-3 mb-3">
         <% if @favourite_movies %>
-          <% @favourite_movies[0..3].each do |watch| %>
+          <% @favourite_movies[0..2].each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
           <% end %>
         <% end %>
+        <div class="d-flex align-items-end justify-content-center col-3 see-more">
+          <%= link_to "See more", "profile/favourites", class: "btn btn-outline-spacegreen" %>
+        </div>
       </div>
       <h2> My favourite series</h2>
       <div class="row mt-3">
         <% if @favourite_series %>
-          <% @favourite_series[0..3].each do |watch| %>
+          <% @favourite_series[0..2].each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
           <% end %>
         <% end %>
+        <div class="d-flex align-items-end justify-content-center col-3 see-more">
+          <%= link_to "See more", "profile/favourites", class: "btn btn-outline-spacegreen" %>
+        </div>
       </div>
     </div>
   </div>

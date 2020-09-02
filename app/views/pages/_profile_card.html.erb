@@ -1,10 +1,11 @@
 <% medium = watch.medium %>
 <div class="movieposter-profile position-relative">
-      <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+      <a class="card px-0 m-0 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
         <img class="card-img-top" style="height: 200px; width: 100%; object-fit: cover;" src="<%= medium.poster %>">
         <div class="popup">
           <% medium.title.length > 30 ? dots = "..." : dots = "" %>
           <p class="card-title"><%= medium.title.slice(0..30) + dots %></p>
+          <p class="card-text">Rating <%= medium.rating %></p>
         </div>
       </a>
       </div>
