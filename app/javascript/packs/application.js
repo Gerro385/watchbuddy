@@ -31,7 +31,7 @@ import "bootstrap";
 import { setFavouriteButtons }from '../components/buttons.js'
 import { setWatchlistButtons }from '../components/watchlist.js'
 import { setSeenButtons }from '../components/seen.js'
-import { giveRating }from '../components/rating.js'
+import { giveRating, rateClick }from '../components/rating.js'
 import { ratingSlide }from '../components/ratingSlider.js'
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   setSeenButtons();
   giveRating();
   ratingSlide();
+  rateClick();
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   });
