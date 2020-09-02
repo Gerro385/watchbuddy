@@ -38,7 +38,7 @@
       <h2> My favourite movies</h2>
       <div class="row mt-3 mb-3">
         <% if @favourite_movies %>
-          <% @favourite_movies[0..2].each do |watch| %>
+          <% @favourite_movies.sample(3).each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
@@ -51,7 +51,7 @@
       <h2> My favourite series</h2>
       <div class="row mt-3">
         <% if @favourite_series %>
-          <% @favourite_series[0..2].each do |watch| %>
+          <% @favourite_series.sample(3).each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
