@@ -1,10 +1,7 @@
 require 'rest-client'
 
 class MovieFetch
-  def initialize
-  end
-
-  def medium_hash(id, type) # fetches medium info from tmdb API and returns a hash of all elements we want to store in our db with the correct keys
+  def self.medium_hash(id, type) # fetches medium info from tmdb API and returns a hash of all elements we want to store in our db with the correct keys
     vals = JSON.parse(RestClient.get("https://api.themoviedb.org/3/#{type}/#{id}?api_key=#{ENV['TMDB_KEY']}", { accept: :json }))
     title = vals["title"] ? vals["title"] : vals["name"]
     first_air_date = vals["first_air_date"] ? vals["first_air_date"] : vals["release_date"]

@@ -19,8 +19,7 @@ class MediaController < ApplicationController
   end
 
   def create
-    medium_fetch = MovieFetch.new # using this for the class method which pulls movie data from the tmdb API
-    @medium = Medium.new(medium_fetch.medium_hash(params[:tmdb_id], params[:media_type]))
+    @medium = Medium.new(MovieFetch.medium_hash(params[:tmdb_id], params[:media_type])) # using this for the class method which pulls movie data from the tmdb API
     authorize @medium # allow creation of medium through pundit
     medium_exist = Medium.find_by(tmdb_id: @medium.tmdb_id, media_type: @medium.media_type) # variable contains instance of movie from our db if the tmdb_id matches something from our db, otherwise nil
     if medium_exist.nil? # checks if we have a match in our db
