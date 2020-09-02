@@ -19,7 +19,7 @@ const watchlistRequest = (id, button) => {
 };
 
 const emptyWatchlist = "https://res.cloudinary.com/g385/image/upload/Pictograms/watchlist-empty.png"
-const filledWatchlist = "https://res.cloudinary.com/g385/image/upload/Pictograms/watchlist-filled.png"
+const filledWatchlist = "https://res.cloudinary.com/g385/image/upload/Pictograms/watchlist-filled-metallic.png"
 
 const changeImage = (anchorElement, isWatchlist) => {
   anchorElement.firstElementChild.src = isWatchlist ? filledWatchlist : emptyWatchlist
