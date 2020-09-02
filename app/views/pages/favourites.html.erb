@@ -1,6 +1,7 @@
+<h1 class="mt-4" style="text-align: center;"><strong>YOUR FAVOURITES</strong></h1>
 <div class="container d-flex">
   <div class= "mt-2">
-    <h1 class= "ml-3 mt-3" style="text-align: center"><strong>MOVIES</strong></h1>
+    <h1 style="text-align: center"><strong>MOVIES</strong></h1>
     <div class="container row d-flex flex-row mt-3">
       <% @favourite_movies.each do |watch| %>
         <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px;">
@@ -22,7 +23,7 @@
     </div>
   </div>
   <div class= "mt-2">
-    <h1 class= "ml-3 mt-3" style="text-align: center"><strong>Series</strong></h1>
+    <h1 style="text-align: center"><strong>SERIES</strong></h1>
     <div class="container row d-flex flex-row mt-3">
       <% @favourite_series.each do |watch| %>
         <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px;">
