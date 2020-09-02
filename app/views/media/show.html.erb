@@ -1,8 +1,8 @@
 <div class="container" style="margin-top: 50px">
   <div class="d-flex border">
-      <div class="card-trip rounded" style="width: 350px;">
-          <img class="card-img-show" src="<%= @medium.poster %>">
-      </div>
+    <div class="card-trip rounded" style="width: 350px;">
+        <img class="card-img-show" src="<%= @medium.poster %>">
+    </div>
       <div class="card-trip-infos border p-3">
         <div>
           <div class="card-body">
@@ -33,7 +33,6 @@
                     <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen" %>
                   </div>
                 </div>
-              
             </div>
           </div>
 
@@ -59,7 +58,21 @@
             <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
             <p class="card-text"><%= @medium.description.slice(0..500) + dots %></p>
           </div>
-        </div>
       </div>
   </div>
+    <div class="row ml-5 mt-3">
+      <section name="Reviews" class="small-12 columns">
+        <h3>REVIEWS</h3>
+      </section>
+
+      <div class="col-">
+        <% @medium.watches.each do |watch| %>
+        <%= watch.description %>
+        <%= watch.user.first_name + " " + watch.user.last_name %>
+        <% end %>
+      </div>
+    </div>
+
+
 </div>
+
