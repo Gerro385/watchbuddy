@@ -44,6 +44,8 @@ document.addEventListener('turbolinks:load', () => {
   ratingSlide();
   rateClick();
   $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip({
+      trigger : 'hover'
+    })
   });
 });
