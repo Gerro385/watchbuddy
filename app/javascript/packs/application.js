@@ -44,7 +44,6 @@ document.addEventListener('turbolinks:load', () => {
     $('[data-toggle="tooltip"]').tooltip({
       trigger : 'hover'
     })
-    console.log("running")
   });
   giveRating();   // bottom three can cause trouble, just move to the bottom or fix your shit!
   ratingSlide();
