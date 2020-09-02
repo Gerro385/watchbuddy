@@ -98,11 +98,12 @@
 // profilecard
 
 .movieposter-profile {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   .card-title {
     font-size: 11px;
     align-items: center;
+    border-radius: 2px;
     margin-bottom: 0px;
     margin-top: 0px;
   }
@@ -140,6 +141,8 @@
 }
 
 .card-fav {
+  height: 250px;
+  width: 540px;
   overflow: hidden;
   border: 1px solid white;
 
