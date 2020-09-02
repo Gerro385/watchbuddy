@@ -30,5 +30,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 40px !important
+  height: 40px !important;
+}
+
+.decline {
+  position: absolute;
+  left: 320px;
 }
