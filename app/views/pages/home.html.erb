@@ -8,7 +8,7 @@
         <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
         <div class="popup">
           <p class="card-title"><%= medium.title %></p>
-          <p class="card-text">Rating <%= medium.rating %></p>
+          <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
         </div>
       </a>
         <!-- the and sign is the safe navigator operator, only runs if what comes before is not nil -->
@@ -31,7 +31,7 @@
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
         <div class="popup">
           <p class="card-title"><%= medium.title %></p>
-          <p class="card-text">Rating <%= medium.rating %></p>
+          <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
         </div>
           </a>
             <% image_tag = medium.watches.first&.favourite ? "pictograms/diamond-heart-metallic" : "pictograms/diamond-heart-empty" %>
@@ -53,7 +53,7 @@
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
           <div class="popup">
             <p class="card-title"><%= medium.title %></p>
-            <p class="card-text">Rating <%= medium.rating %></p>
+            <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
           </div>
         <% end %>
       </div>
