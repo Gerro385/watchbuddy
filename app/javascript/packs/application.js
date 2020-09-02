@@ -44,5 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   ratingSlide();
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-  })
+  });
 });
