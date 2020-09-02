@@ -40,12 +40,14 @@ document.addEventListener('turbolinks:load', () => {
   setFavouriteButtons();
   setWatchlistButtons();
   setSeenButtons();
-  giveRating();
-  ratingSlide();
-  rateClick();
   $(function () {
     $('[data-toggle="tooltip"]').tooltip({
       trigger : 'hover'
     })
+    console.log("running")
   });
+  giveRating();   // bottom three can cause trouble, just move to the bottom or fix your shit!
+  ratingSlide();
+  rateClick();
 });
+
