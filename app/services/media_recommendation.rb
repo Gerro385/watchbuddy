@@ -14,7 +14,7 @@ class MediaRecommendation
     friends = find_friends(user)
     friends.each do |friend|
       watches = Watch.where(user: friend).sample(5).map { |watch| watch.medium }
-      recs << watches unless watch.empty?
+      recs << watches unless watches.empty?
     end
     return recs.flatten
   end
