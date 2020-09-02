@@ -6,7 +6,7 @@
       <div class="card-trip-infos border p-3">
         <div>
           <div class="card-body">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between relativdiv">
               <div class="d-flex">
               <h1 class="card-title" style="margin-left: -20px;"><%= @medium.title %>
                 <% image_tag = @medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
@@ -23,6 +23,7 @@
                 <div class="d-flex justify-content-end">
                   <p class="card-text">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "---" %></p></span>
                 </div>
+              </div>
                 <div class="rating-popup d-none">
                   <div class="d-flex flex-column align-items-center">
                     <label for="ratingslide">Your Rating</label>
@@ -32,9 +33,9 @@
                     <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen" %>
                   </div>
                 </div>
-              </div>
+              
             </div>
-            </div>
+          </div>
 
             <p class="card-text" style="margin-top: -50px;"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
             <div class="row mb-3 ml-1">
