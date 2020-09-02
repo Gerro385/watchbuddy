@@ -24,3 +24,11 @@
 .btn-round:hover {
   opacity: 1;
 }
+
+.removebtn {
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px !important
+}

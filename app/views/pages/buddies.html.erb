@@ -4,23 +4,64 @@
 </div>
     <div class="row d-flex align-items-center justify-content-center">
       <% @buddies.each do |buddy| %>
+
+
         <div class="card-buddy col-7 mt-3">
-        <%= link_to(user_path(buddy)) do %>
-          <% if buddy[0].photo.blank? %>
-            <%= cl_image_tag("avatar-default", :radius=>50) %>
-          <% else %>
-            <%= cl_image_path buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
-          <% end %>
-        <% end %>
-          <div class="card-buddy-infos d-flex">
-          <%= link_to(user_path(buddy)) do %>
-            <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
+          <div>
+            <%= link_to(user_path(buddy)) do %>
+              <% if buddy[0].photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
+              <% else %>
+                <%= cl_image_tag buddy[0].photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+              <% end %>
             <% end %>
-            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn btn-outline-spacegreen" %>
+          </div>
+          <div class="card-buddy-infos d-flex">
+            <div>
+              <%= link_to(user_path(buddy)) do %>
+                <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
+              <% end %>
+            </div>
+            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn removebtn btn-outline-spacegreen" %>
           </div>
         </div>
       <% end %>
     </div>
+
+<!--
+STUFF FROM USER INDEX
+
+<div class="row justify-content-center">
+    <% if params[:query].present? %>
+      <% @users.each do |user| %>
+      <div class="card-buddy col-7 mt-3">
+        <div>
+          <% if user.photo.blank? %>
+            <%= cl_image_tag("avatar-default", :radius=>50) %>
+          <% else %>
+            <%= cl_image_tag user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+          <% end %>
+        </div>
+        <div class="card-buddy-infos d-flex">
+          <div>
+            <h2><%= user.first_name %> <%= user.last_name %></h2>
+          </div>
+            <div>
+            <% fetch = Request.find_by(sender_id: current_user.id, receiver_id: user.id).present? || Request.find_by(sender_id: user.id, receiver_id: current_user.id) %>
+            <% if fetch.nil? %>
+              <%= link_to cl_image_tag("pictograms/buddy-empty"), user_requests_path(user), method: :post %>
+            <% else %>
+              <a><%= cl_image_tag("pictograms/buddy-filled") %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  -->
+
     <div class="m-4 border">
       <% @requests.each do |request| %>
         <% buddy = User.find(request.sender_id) %>

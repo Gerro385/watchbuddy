@@ -20,7 +20,7 @@
           <% if user.photo.blank? %>
             <%= cl_image_tag("avatar-default", :radius=>50) %>
           <% else %>
-            <%= cl_image_path user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+            <%= cl_image_tag user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
           <% end %>
         </div>
         <div class="card-buddy-infos d-flex">
