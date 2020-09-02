@@ -76,6 +76,7 @@
       </div>
       <div class="row mt-3 mb-3">
         <%# if @review %>
+        <% if @medium.watches %>
           <% @medium.watches.each do |watch| %>
           <div class="card-review col-4 mt-3 mb-3">
             <div class="text">
@@ -91,7 +92,7 @@
                     <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
                  <% end %>
               " />
-
+<% end %>
             </div>
         </div>
       </div>
