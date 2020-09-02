@@ -1,7 +1,48 @@
-<h1> My watchlist! </h1>
-
-<%= link_to "Back to My Profile", profile_path(current_user), class: "" %>
-<br>
-<%= link_to "Home", root_path, class: "" %>
+<div class="container d-flex">
+  <div class= "mt-2">
+    <h1 class= "ml-3 mt-3" style="text-align: center"><strong>MOVIES</strong></h1>
+    <div class="container row d-flex flex-row mt-3">
+      <% @watchlist_movies.each do |watch| %>
+        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px;">
+          <div class="d-flex card-fav justify-content-between">
+            <img src="<%= watch.medium.poster %>" style="height: 250px;"/>
+            <div class="card-fav-infos">
+              <div class="d-flex justify-content-between">
+                <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
+                <p class="card-text mb-0"><%= cl_image_tag("star-filled") %> <%= watch.medium.rating %></p>
+              </div>
+              <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
+              <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
+              <% watch.medium.description.length > 500 ? dots = "..." : dots = ""  %>
+              <p class="card-text"><%= watch.medium.description.slice(0..500) + dots %></p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class= "mt-2">
+    <h1 class= "ml-3 mt-3" style="text-align: center"><strong>Series</strong></h1>
+    <div class="container row d-flex flex-row mt-3">
+      <% @watchlist_series.each do |watch| %>
+        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px;">
+          <div class="d-flex card-fav justify-content-between">
+            <img src="<%= watch.medium.poster %>" style="height: 250px;"/>
+            <div class="card-fav-infos">
+              <div class="d-flex justify-content-between">
+                <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
+                <p class="card-text mb-0"><%= cl_image_tag("star-filled") %> <%= watch.medium.rating %></p>
+              </div>
+              <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
+              <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
+              <% watch.medium.description.length > 500 ? dots = "..." : dots = ""  %>
+              <p class="card-text"><%= watch.medium.description.slice(0..500) + dots %></p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
