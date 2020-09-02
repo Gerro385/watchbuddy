@@ -17,15 +17,19 @@
       <% @users.each do |user| %>
       <div class="card-buddy col-7 mt-3">
         <div>
+          <%= link_to user_path(user) do %>
           <% if user.photo.blank? %>
             <%= cl_image_tag("avatar-default", :radius=>50) %>
           <% else %>
             <%= cl_image_tag user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
           <% end %>
+        <% end %>
         </div>
         <div class="card-buddy-infos d-flex">
           <div>
+            <%= link_to user_path(user) do %>
             <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <% end %>
           </div>
             <div>
             <% fetch = Request.find_by(sender_id: current_user.id, receiver_id: user.id).present? || Request.find_by(sender_id: user.id, receiver_id: current_user.id) %>
