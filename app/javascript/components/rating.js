@@ -1,7 +1,7 @@
 export const giveRating = () => {
-  const ratingStar = document.getElementById("your-rating");
+  const ratingSection = document.querySelector(".rating-section");
   const ratingPopup = document.querySelector(".rating-popup");
-    ratingStar.addEventListener('click', (e) => {
+    ratingSection.addEventListener('click', (e) => {
       e.preventDefault();
       // seenRequest(id, button)
       if (ratingPopup.classList.contains("d-none")){
