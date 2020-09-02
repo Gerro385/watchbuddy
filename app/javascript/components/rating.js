@@ -23,32 +23,21 @@ export const rateClick = () => {
 
 const rateRequest = (id, button) => {
   const slide = document.getElementById("ratingslide")
-  console.log("rateRequest -> slide", slide.value)
   const desc = document.getElementById("ratingdesc")
-  console.log("rateRequest -> desc", desc.value)
   fetch(`/rate/${id}?rating=${slide.value}&desc=${desc.value}`, {headers: {accept: "application/json"}})
   .then(response => response.json())
   .then(data => {
-  console.log("rateRequest -> data", data)
-    //changeImage(button, data.is_saved);
-    console.log(data);
+    const ratingNum = document.getElementById("ratingnum");
+    ratingNum.innerText = data.rating
+    const ratingPopup = document.querySelector(".rating-popup");
+    ratingPopup.classList.add("d-none")
+    const ratingStar = document.getElementById("your-rating");
+    // changeImage(ratingStar, data.is_saved);
+    if (ratingStar.src === emptyStar) {
+      ratingStar.src = filledStar
+    }
   })
 };
 
-
-/*
-fetch('https://httpbin.org/post', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({a: 1, b: 'Textual content'})
-*/
-
 const emptyStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png"
 const filledStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png"
-
-const changeImage = (anchorElement, isSeen) => {
-  anchorElement.firstElementChild.src = isSeen ? filledStar : emptyStar
-};
