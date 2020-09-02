@@ -34,11 +34,19 @@
                     <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen ratebtn" %>
                   </div>
                 </div>
-
             </div>
           </div>
-          <div>
-            <p class="card-text" style="margin-top: -50px;"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
+
+
+
+          <div class="d-flex" style="margin-top: -50px; max-width: 620px;">
+            <div class="card-text d-flex" class="text-muted">
+              <p id="duration" class="mr-1"><%= cl_image_tag("pictograms/clock-gray") %> <%= @medium.runtime %> min</p>
+              <p id="language" class="ml-2 mr-1"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
+              <p id="origin" class="ml-2 mr-1"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
+              <p id="origin" class="ml-2 mr-1"><%= cl_image_tag("pictograms/masks-gray") %> <%= @medium.genres.join(", ") %></p>
+              <p id="seasons" class="ml-2 mr-1"><%= cl_image_tag("pictograms/tv-gray") if @medium.total_seasons %> <%= @medium.total_seasons if @medium.total_seasons %></p>
+            </div>
           </div>
           <div class="row mb-3 ml-1">
             <div class="col-1 justify-content-center"><strong>
