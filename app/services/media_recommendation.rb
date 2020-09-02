@@ -2,7 +2,6 @@ require 'rest-client'
 
 class MediaRecommendation
   def self.recommend_media(user)
-    # recs = JSON.parse(RestClient.get("https://api.themoviedb.org/3/#{type}/#{id}?api_key=#{ENV['TMDB_KEY']}", { accept: :json }))
     text_movie = JSON.parse(RestClient.get("https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_KEY']}&language=en-US&page=1"))["results"].sample(5)
     text_tv = JSON.parse(RestClient.get("https://api.themoviedb.org/3/tv/popular?api_key=#{ENV['TMDB_KEY']}&language=en-US&page=1"))["results"].sample(5)
     recs = []
