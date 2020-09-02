@@ -13,7 +13,8 @@ class MediaRecommendation
     end
     friends = find_friends(user)
     friends.each do |friend|
-      recs << Watch.where(user: friend).sample(5).medium
+      watch = Watch.where(user: friend).sample(5).map { |watch| watch.medium }
+      recs << watch unless watch.empty?
     end
     return recs
   end
@@ -22,9 +23,9 @@ class MediaRecommendation
 
   def self.find_friends(user)
     sent_req = Request.where(sender_id: user, status: 1)
-    sent_req.map { |req| User.find_by(req.receiver_id) } if sent_req.present?
+    sent_req.map { |req| User.find(req.receiver_id) } if sent_req.present?
     received_req = Request.where(receiver_id: user, status: 1)
-    received_req.map { |req| User.find_by(req.sender_id) } if received_req.present?
+    received_req.map { |req| User.find(req.sender_id) } if received_req.present?
     return (sent_req + received_req)
   end
 end
