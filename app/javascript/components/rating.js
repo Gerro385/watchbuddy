@@ -1,5 +1,4 @@
 export const giveRating = () => {
-  if (document.querySelector(".rating-section")) {
   const ratingSection = document.querySelector(".rating-section");
   const ratingPopup = document.querySelector(".rating-popup");
     ratingSection.addEventListener('click', (e) => {
@@ -11,18 +10,15 @@ export const giveRating = () => {
         ratingPopup.classList.add("d-none")
       }
     });
-  };
 };
 
 export const rateClick = () => {
   const rateBtn = document.querySelector(".btn-outline-spacegreen")
-  if (document.getElementById("ratingslide")) {
     const id = rateBtn.getAttribute("id")
     rateBtn.addEventListener("click", (event) => {
       event.preventDefault();
     rateRequest(id, rateBtn)
     })
-  }
 }
 
 const rateRequest = (id, button) => {
