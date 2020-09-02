@@ -29,7 +29,7 @@
                     <label for="ratingslide">Your Rating</label>
                     <p id="rating" class="mb-1"><%= @medium.rating %></p>
                     <input type="range" class="form-control-range" min="0" max="10" value="<%= @medium.rating %>" step="0.1" id="ratingslide">
-                    <input type="text" id="ratingdesc">
+                    <textarea type="text" cols="5" rows="5" id="ratingdesc" maxlength="200" placeholder="Your review..."></textarea>
                     <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen" %>
                   </div>
                 </div>
