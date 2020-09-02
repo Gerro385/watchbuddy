@@ -44,5 +44,17 @@
   </div>
 </div>
 <h1 class="mt-5" style="text-align: center;"><strong>YOUR RECOMMENDATIONS of the day</strong></h1>
-
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+  <% @recommended.sample(8).each do |medium| %>
+    <div class="movieposter position-relative">
+      <a class="card px-0 m-1 border-0" style="text-decoration:none" href="#">
+        <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+        <div class="popup">
+          <p class="card-title"><%= medium.title %></p>
+          <p class="card-text">Rating <%= medium.rating %></p>
+        </div>
+      </a>
+    </div>
+  <% end %>
+</div>
 <!--      <button type="button" class="btn btn-outline-spacegreen">Rate Me</button> -->
