@@ -53,9 +53,8 @@ class WatchesController < ApplicationController
     authorize @medium
     @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
     @watch.rating = params[:rating]
-    p params[:rating]
     @watch.description = params[:desc]
-    p params[:desc]
+    @watch.seen = true
     @watch.save!
 
      respond_to do |format|
