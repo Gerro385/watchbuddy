@@ -1,7 +1,7 @@
 <div class="container">
-<div class="row justify-content-center mt-4">
-  <h1>My buddies</h1>
-</div>
+  <div class="row justify-content-center mt-4">
+    <h1>My buddies</h1>
+  </div>
     <div class="row d-flex align-items-center justify-content-center">
       <% @buddies.each do |buddy| %>
         <div class="card-buddy col-7 mt-3">
@@ -25,15 +25,9 @@
         </div>
       <% end %>
     </div>
-
- <div class="row justify-content-center mt-4">
-  <h1>Requests</h1>
-</div>
-
-
-
-
-
+  <div class="row justify-content-center mt-4">
+   <h1>Requests</h1>
+  </div>
     <div class="row d-flex align-items-center justify-content-center">
       <% @requests.each do |request| %>
         <% buddy = User.find(request.sender_id) %>
@@ -59,3 +53,4 @@
         </div>
       <% end %>
     </div>
+</div>
