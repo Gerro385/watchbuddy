@@ -70,6 +70,7 @@ class WatchesController < ApplicationController
     authorize @medium
     @watch = Watch.find_or_initialize_by(user: current_user, medium_id: params[:medium_id].to_i)
     @watch.toggle(:seen)
+    @watch.watched_date = Date.today if @watch.seen
     @watch.save!
 
      respond_to do |format|
