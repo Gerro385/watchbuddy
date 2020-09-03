@@ -10,8 +10,12 @@
             <div class="d-flex justify-content-between relativdiv">
               <div class="d-flex">
                 <div class="flex-column" style="margin-top: -11px;">
+                  <div class="">
                   <h1 class="card-title"><%= @medium.title %> <% image_tag = Watch.find_by(user: current_user, medium: @medium)&.favourite ? "pictograms/diamond-heart-purplebright" : "pictograms/diamond-heart-empty" %>
-            <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-favorite mr-2", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'favorite' } %></h1>
+                  <small> ( <%=@medium.first_air_date.strftime("%Y") if @medium.media_type !="tv" %>
+                  <%= @medium.first_air_date.strftime("%Y") + " - " + @medium.last_air_date.strftime("%Y") + " " if  @medium.media_type =="tv" %>)</small>
+                  <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-favorite mr-2", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'favorite' } %></h1>
+                  </div>
                   <div class="d-flex" style="max-width: 620px; font-size: 13px;">
                     <div class="card-text" class="text-muted">
                       <div class="d-flex" style="margin-bottom: -9px;">
@@ -70,7 +74,6 @@
                 <div class="rating"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= watch.rating %></div>
                 <p ><i>"<%= watch.description %>"</i></p>
                 <div class="name"><%= watch.user.first_name + " " + watch.user.last_name %></div>
-
                 <img class="avatar" src="
                 <% if current_user.photo.blank? %>
                   https://clipartart.com/images/login-background-images-clipart-1.jpg
