@@ -9,6 +9,7 @@ class PagesController < ApplicationController
       recs = MediaRecommendation.recommend_media(current_user)
       @recs_movie = recs[0]
       @recs_tv = recs[1]
+      @friend_recs = MediaRecommendation.friend_views(current_user)
     end
   end
 

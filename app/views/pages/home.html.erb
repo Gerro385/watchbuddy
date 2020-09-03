@@ -45,5 +45,29 @@
       </div>
   </div>
 </div>
+<% if user_signed_in? %>
+  <% unless @friend_recs.nil? %>
+    <div class= "mt-2">
+      <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>Your friends recently watched:</strong></h1>
+      <div class="container d-flex flex-row flex-wrap justify-content-center">
+        <% @friend_recs.each do |medium| %>
+          <div class="movieposter position-relative">
+            <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+              <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+              <div class="popup">
+                <p class="card-title"><%= medium.title %></p>
+                <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
+              </div>
+            </a>
+            <% image_tag = Watch.find_by(user: current_user, medium: medium)&.favourite ? "pictograms/diamond-heart-metallic" : "pictograms/diamond-heart-empty" %>
+            <%= link_to cl_image_tag(image_tag), like_path(medium), { :id => "#{medium.id}", :class => "button-favorite position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'favorite' } %>
+            <% image_tag = Watch.find_by(user: current_user, medium: medium)&.watchlist ? "pictograms/watchlist-filled-metallic" : "pictograms/watchlist-empty" %>
+            <%= link_to cl_image_tag(image_tag), watchlist_path(medium), { :id => "#{medium.id}", :class => "button-watchlist position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'watchlist' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <!--      <button type="button" class="btn btn-outline-spacegreen">Rate Me</button> -->
