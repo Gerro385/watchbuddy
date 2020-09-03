@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     @watches = Watch.where(user: params[:user_id], seen: true)
   end
 
+  def favourites
+    authorize current_user
+    @favourites = Watch.where(user: params[:user_id], favourite: true)
+    @favourite_movies = @favourites.select { |watch| watch.medium.media_type == "movie" }
+    @favourite_series = @favourites.select { |watch| watch.medium.media_type == "tv" }
+  end
+
   def buddies
     @user = authorize User.find_by(params[:id])
     sent = Request.where(sender_id: params[:id], status: 1)
