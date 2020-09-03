@@ -24,7 +24,7 @@ class MediaRecommendation
       end
     end
     recs = [recs_movie.sample(4), recs_tv.sample(4)]
-    recs.each do |rec|
+    recs.map! do |rec|
       rec.map! do |medium|
         found_medium = Medium.find_by(tmdb_id: medium.tmdb_id, media_type: medium.media_type)
         if found_medium
@@ -34,6 +34,7 @@ class MediaRecommendation
           medium
         end
       end
+      rec.uniq
     end
     return recs
   end
@@ -57,13 +58,14 @@ class MediaRecommendation
     friends = MediaRecommendation.find_friends(user)
     views = []
     friends.each do |friend|
-      Watch.where(user: friend, seen: true).sample(5).each do |watch|
-        views << watch
+      friend_watch = []
+      Watch.where(user: friend, seen: true).last(5).each do |watch|
+        friend_watch << watch
       end
+      friend_watch.map! { |watch| watch.medium }
+      views << { user: friend, media: friend_watch } unless friend_watch.empty?
     end
-    views.flatten!
-    views.map! { |watch| watch.medium }
-    return views[-4..-1]
+    return views.sample(4)
   end
 
   private

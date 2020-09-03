@@ -26,7 +26,7 @@
       <h2> Recently watched </h2>
       <div class="row mt-3 mb-3">
         <% if @seen.present? %>
-          <% @seen[-3..-1].reverse.each do |watch| %>
+          <% @seen.to_a.last(3).reverse.each do |watch| %>
           <div class="col-3">
           <%= render "profile_card", watch: watch %>
           </div>
