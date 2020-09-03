@@ -31,11 +31,17 @@
   align-items: center;
   justify-content: center;
   height: 40px !important;
+  margin-right: 10px;
 }
 
 .decline {
-  position: absolute;
   left: 320px;
+}
+
+.status-button {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .backbutton {
