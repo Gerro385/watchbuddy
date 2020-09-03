@@ -11,7 +11,17 @@ class UsersController < ApplicationController
 
   def show
     @user = authorize User.find(params[:id])
+    @seen = @user.watches.where(seen: true)
+    @favourite_movies = []
+    @user.watches.each do |watch|
+      @favourite_movies << watch if watch.medium.media_type == "movie" && watch.favourite = true
+    end
+    @favourite_series = []
+    @user.watches.each do |watch|
+      @favourite_series << watch if watch.medium.media_type == "tv" && watch.favourite = true
+    end
   end
+
 
   def watchlist
   end
