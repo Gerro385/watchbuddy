@@ -151,18 +151,19 @@
 }
 
 .card-fav {
-  height: 250px;
-  width: 540px;
+  height: 202px;
+  width: 367px;
   overflow: hidden;
   border: 1px solid white;
+  .card-title {
+    width: 152px;
+  }
 
 }
 
 .card-fav > img {
   height: 100%;
   object-fit: cover;
-  border-bottom: 1px solid white;
-
 }
 
 .card-fav h2 {
@@ -173,7 +174,6 @@
 
 .card-fav p {
   font-size: 12px;
-  opacity: .7;
   margin: 0;
 }
 
@@ -268,35 +268,33 @@
 }
 
 .card-seen {
-  height: 202px;
-  width: 367px;
-  overflow: hidden;
-  border: 1px solid white;
-
-}
-
-.card-seen > img {
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-seen h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-seen p {
-  font-size: 12px;
-  margin: 0;
-}
-
-.card-seen .card-seen-infos {
-  padding: 16px;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
-  padding: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  height: 150px;
+  background: white;
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  background-color: $smokeyblack;
+  border: 1px solid white;
+  img {
+      height: 150px;
+      width: 100px;
+      object-fit: cover;
+  }
+  .card-title {
+    width: 152px;
+  }
+}
+
+.container > div.row.d-flex.flex-fow.mt-5 > a > div > div > p.seen {
+  img {
+    height: 20px;
+  }
+  position: absolute;
+  right: 16px;
+  bottom: 8px;
 }
 
 .card-trip-infos {
