@@ -77,10 +77,12 @@
                 <p ><i>"<%= watch.description %>"</i></p>
                 <div class="name"><%= watch.user.first_name + " " + watch.user.last_name %></div>
                 <img class="avatar" src="
-                <% if current_user.photo.blank? %>
+                <% if watch.user.photo.blank? %>
                   https://clipartart.com/images/login-background-images-clipart-1.jpg
+                  <% "is here" %>
                 <% else %>
-                <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+                <%= "is there" %>
+                <%= cl_image_path watch.user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face %>
                 <% end %>
                 " />
               </div>
