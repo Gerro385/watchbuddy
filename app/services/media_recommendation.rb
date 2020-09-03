@@ -37,20 +37,9 @@ class MediaRecommendation
         end
       end
     end
-    recs = [recs_movie.sample(4), recs_tv.sample(4)]
-    recs.map! do |rec|
-      # rec.map! do |medium|
-      #   found_medium = Medium.find_by(tmdb_id: medium.tmdb_id, media_type: medium.media_type)
-      #   if found_medium
-      #     found_medium
-      #   else
-      #     medium.save
-      #     medium
-      #   end
-      # end
-      rec.uniq
-    end
-    return recs
+    recs_movie.uniq!
+    recs_tv.uniq!
+    return [recs_movie.sample(4), recs_tv.sample(4)]
   end
 
   def self.friends_ratings(user, id)
