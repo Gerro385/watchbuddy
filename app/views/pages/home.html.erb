@@ -2,7 +2,8 @@
   <div class= "mt-2">
     <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>MOVIES</strong></h1>
   <div class="container d-flex flex-row flex-wrap justify-content-center">
-    <% @media.sample(4).each do |medium| %>
+    <% movies = user_signed_in? ? @recs_movie : @media.sample(4) %>
+    <% movies.each do |medium| %>
     <div class="movieposter position-relative">
       <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
         <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
@@ -25,7 +26,8 @@
     <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>SERIES</strong></h1>
     <div class="container d-flex flex-row flex-wrap justify-content-center">
         <% media = Medium.where(media_type: "tv") %>
-        <% media.sample(4).each do |medium| %>
+        <% shows = user_signed_in? ? @recs_tv : @media.sample(4) %>
+        <% shows.each do |medium| %>
         <div class="movieposter position-relative">
           <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
           <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
@@ -43,22 +45,5 @@
       </div>
   </div>
 </div>
-<% if user_signed_in? %>
-  <h1 class="mt-5" style="text-align: center;"><strong>YOUR RECOMMENDATIONS of the day</strong></h1>
-  <div class="container d-flex flex-row flex-wrap justify-content-center">
-    <% @recommended.sample(8).each do |medium| %>
-      <div class="movieposter position-relative">
-        <% path = media_path + "?tmdb_id=#{medium.tmdb_id}&media_type=#{medium.media_type}"%>
-        <%= link_to(path, method: :post, class: "card px-0 m-1 border-0", style: "") do %>
-          <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
-          <div class="popup">
-            <p class="card-title"><%= medium.title %></p>
-            <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
 
 <!--      <button type="button" class="btn btn-outline-spacegreen">Rate Me</button> -->
