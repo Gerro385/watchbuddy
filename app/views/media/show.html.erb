@@ -32,8 +32,10 @@
                 </div>
               </div>
               <div class="text-right rating-section">
-                <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
-                <p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @buddy_rating %></p>
+                <p class="card-text">WatchBuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
+                <div class="d-flex justify-content-end">
+                  <span id="buddytag"><p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"></p></span><p><%= @buddy_rating %></p>
+                </div>
                 <div class="d-flex justify-content-end">
                   <span id="yourtag"><p class="card-text", data-toggle="tooltip", data-placement= "bottom", title= "Rate Me">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p></span><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "--" %></p></span>
                 </div>
