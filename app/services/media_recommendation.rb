@@ -66,7 +66,7 @@ class MediaRecommendation
         friend_watch << watch
       end
       friend_watch.map! { |watch| watch.medium }
-      views << { user: friend, media: friend_watch } unless friend_watch.empty?
+      views << { user: friend, media: friend_watch } unless (friend_watch.length < 5)
     end
     return views.sample(4)
   end
