@@ -3,7 +3,6 @@ export const giveRating = () => {
   const ratingPopup = document.querySelector(".rating-popup");
     ratingSection.addEventListener('click', (e) => {
       e.preventDefault();
-      // seenRequest(id, button)
       if (ratingPopup.classList.contains("d-none")){
         ratingPopup.classList.remove("d-none")
       } else {
@@ -12,15 +11,15 @@ export const giveRating = () => {
     });
 };
 
+
 export const rateClick = () => {
-  const rateBtn = document.querySelector(".btn-outline-spacegreen")
+  const rateBtn = document.querySelector(".ratebtn")
   const id = rateBtn.getAttribute("id")
   rateBtn.addEventListener("click", (event) => {
     event.preventDefault();
-  rateRequest(id, rateBtn)
+    rateRequest(id, rateBtn)
   })
 }
-
 const rateRequest = (id, button) => {
   const slide = document.getElementById("ratingslide")
   const desc = document.getElementById("ratingdesc")
@@ -38,6 +37,5 @@ const rateRequest = (id, button) => {
     }
   })
 };
-
 const emptyStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png"
 const filledStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png"

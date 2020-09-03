@@ -1,8 +1,9 @@
 <div class="container" style="margin-top: 50px">
+  <%= link_to 'Back', url_for(:back), class: "btn btn-outline-spacegreen" %>
   <div class="d-flex border">
-      <div class="card-trip rounded" style="width: 350px;">
-          <img class="card-img-show" src="<%= @medium.poster %>">
-      </div>
+    <div class="card-trip rounded" style="width: 350px;">
+        <img class="card-img-show" src="<%= @medium.poster %>">
+    </div>
       <div class="card-trip-infos border p-3">
         <div>
           <div class="card-body">
@@ -19,9 +20,9 @@
               </div>
               <div class="text-right rating-section">
                 <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
-                <p class="card-text">Friends <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @buddy_rating %></p>
+                <p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
                 <div class="d-flex justify-content-end">
-                  <p class="card-text">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "---" %></p></span>
+                  <span id="yourtag"><p class="card-text">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p></span><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "--" %></p></span>
                 </div>
               </div>
                 <div class="rating-popup d-none">
@@ -30,36 +31,73 @@
                     <p id="rating" class="mb-1"><%= @medium.rating %></p>
                     <input type="range" class="form-control-range" min="0" max="10" value="<%= @medium.rating %>" step="0.1" id="ratingslide">
                     <textarea type="text" cols="5" rows="5" id="ratingdesc" maxlength="200" placeholder="Your review..."></textarea>
-                    <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen" %>
+                    <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen ratebtn" %>
                   </div>
                 </div>
-
             </div>
           </div>
 
-            <p class="card-text" style="margin-top: -50px;"><small class="text-muted">Duration: <%= @medium.runtime %> min</small></p>
-            <div class="row mb-3 ml-1">
-              <div class="col-1 justify-content-center"><strong>
-                <h3><i class="fas fa-language"></i></h3>
-                <h3><i class="fas fa-globe-africa"></i></h3>
-                <h3><i class="fas fa-theater-masks"></i></h3>
-                <h3><i class="far fa-calendar-check"></i></h3>
-                <p class="card-text"><%="Seasons:" if @medium.total_seasons %></p>
-<!--                 <h3><i class="fas fa-sort-numeric-up-alt"></i><%= "" if @medium.total_seasons %></h3> -->
-              </strong></div>
-              <div class="col">
-                <p class="card-text"><%= @medium.language %></p>
-                <p class="card-text"><%= @medium.origin_countries.join(", ") %></p>
-                <p class="card-text"><%= @medium.genres.join(", ") %></p>
-                <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") if @medium.media_type !="tv" %></p>
-                <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") + " - " + @medium.last_air_date.strftime("%B %Y") if  @medium.media_type =="tv" %></p>
-                <p class="card-text ml-3"><%= @medium.total_seasons if @medium.total_seasons %></p>
-              </div>
+
+
+          <div class="d-flex" style="margin-top: -50px; max-width: 620px;">
+            <div class="card-text d-flex" class="text-muted">
+              <p id="duration" class="mr-1"><%= cl_image_tag("pictograms/clock-gray") %> <%= @medium.runtime %> min</p>
+              <p id="language" class="ml-2 mr-1"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
+              <p id="origin" class="ml-2 mr-1"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
+              <p id="origin" class="ml-2 mr-1"><%= cl_image_tag("pictograms/masks-gray") %> <%= @medium.genres.join(", ") %></p>
+              <p id="seasons" class="ml-2 mr-1"><%= cl_image_tag("pictograms/tv-gray") if @medium.total_seasons %> <%= @medium.total_seasons if @medium.total_seasons %></p>
             </div>
+          </div>
+          <div class="row mb-3 ml-1">
+            <div class="col-1 justify-content-center"><strong>
+              <h3><i class="fas fa-language"></i></h3>
+              <h3><i class="fas fa-globe-africa"></i></h3>
+              <h3><i class="fas fa-theater-masks"></i></h3>
+              <h3><i class="far fa-calendar-check"></i></h3>
+              <p class="card-text"><%="Seasons:" if @medium.total_seasons %></p>
+            </strong></div>
+            <div class="col">
+              <p class="card-text"><%= @medium.language %></p>
+              <p class="card-text"><%= @medium.origin_countries.join(", ") %></p>
+              <p class="card-text"><%= @medium.genres.join(", ") %></p>
+              <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") if @medium.media_type !="tv" %></p>
+              <p class="card-text"><%= @medium.first_air_date.strftime("%B %Y") + " - " + @medium.last_air_date.strftime("%B %Y") if  @medium.media_type =="tv" %></p>
+              <p class="card-text ml-3"><%= @medium.total_seasons if @medium.total_seasons %></p>
+            </div>
+          </div>
             <% @medium.description.length > 500 ? dots = "..." : dots = ""  %>
             <p class="card-text"><%= @medium.description.slice(0..500) + dots %></p>
           </div>
-        </div>
       </div>
   </div>
-</div>
+  <div class="col-12 justify-content-center align-items-center mt-4">
+    <div class="name d-flex w-100 justify-content-between mb-3">
+      <h3>Latest reviews</h3>
+    </div>
+    <div class="row mt-3 mb-3">
+      <%# if @review %>
+      <% if @medium.watches %>
+        <% @medium.watches.each do |watch| %>
+          <% if watch.description %>
+            <div class="card-review col-4 mt-3 mb-3">
+              <div class="text">
+                <div class="rating"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= watch.rating %></div>
+                <p ><i>"<%= watch.description %>"</i></p>
+                <div class="name"><%= watch.user.first_name + " " + watch.user.last_name %></div>
+            
+                <img class="avatar" src="
+                <% if current_user.photo.blank? %>
+                  https://clipartart.com/images/login-background-images-clipart-1.jpg
+                <% else %>
+                <%= cl_image_path current_user.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+                <% end %>
+                " />
+          <% end %>
+        <% end %>
+      <% end %>
+              </div>
+            </div>
+      </div>
+    </div>
+
+

@@ -94,6 +94,10 @@
   }
 }
 
+#yourtag {
+  position: absolute;
+  right: 27px;
+}
 
 // profilecard
 
@@ -342,4 +346,34 @@
  margin: 25px 20px 15px; // top right bottom
  display: flex;
  width: 180px;
+}
+.card-review {
+  position: relative;
+  border: 1px solid;
+
+  .avatar {
+    position: absolute;
+    align-text: right;
+    right: 15px;
+    bottom: 15px;
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+  }
+  .text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .rating {
+    text-align: right;
+    align-items: center;
+  }
+  p {
+    text-align: left;
+  }
+  .name {
+    text-align: right;
+    margin-right: 40px;
+    margin-bottom: 18px;
+  }
 }
