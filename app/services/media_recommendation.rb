@@ -7,10 +7,24 @@ class MediaRecommendation
     recs_movie = []
     recs_tv = []
     text_movie.each do |medium|
-      recs_movie << Medium.new(MovieFetch.medium_hash(medium["id"], "movie"))
+      new_med = Medium.new(MovieFetch.medium_hash(medium["id"], "movie"))
+      found_medium = Medium.find_by(tmdb_id: new_med.tmdb_id, media_type: new_med.media_type)
+      if found_medium
+        recs_movie << found_medium
+      else
+        new_med.save
+        recs_movie << new_med
+      end
     end
     text_tv.each do |medium|
-      recs_tv << Medium.new(MovieFetch.medium_hash(medium["id"], "tv"))
+      new_med = Medium.new(MovieFetch.medium_hash(medium["id"], "tv"))
+      found_medium = Medium.find_by(tmdb_id: new_med.tmdb_id, media_type: new_med.media_type)
+      if found_medium
+        recs_tv << found_medium
+      else
+        new_med.save
+        recs_tv << new_med
+      end
     end
     friends = find_friends(user)
     friends.each do |friend|
@@ -23,20 +37,9 @@ class MediaRecommendation
         end
       end
     end
-    recs = [recs_movie.sample(4), recs_tv.sample(4)]
-    recs.map! do |rec|
-      rec.map! do |medium|
-        found_medium = Medium.find_by(tmdb_id: medium.tmdb_id, media_type: medium.media_type)
-        if found_medium
-          found_medium
-        else
-          medium.save
-          medium
-        end
-      end
-      rec.uniq
-    end
-    return recs
+    recs_movie.uniq!
+    recs_tv.uniq!
+    return [recs_movie.sample(4), recs_tv.sample(4)]
   end
 
   def self.friends_ratings(user, id)
@@ -63,7 +66,7 @@ class MediaRecommendation
         friend_watch << watch
       end
       friend_watch.map! { |watch| watch.medium }
-      views << { user: friend, media: friend_watch } unless friend_watch.empty?
+      views << { user: friend, media: friend_watch } unless (friend_watch.length < 5)
     end
     return views.sample(4)
   end

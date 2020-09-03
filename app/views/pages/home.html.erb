@@ -7,30 +7,30 @@
   </div>
 </div>
 <% end %>
-  <h1 class="mt-4" style="text-align: center;"><strong>YOUR BEST CHOICES</strong></h1>
+  <h1 class="mt-5" style="text-align: center;"><strong>YOUR BEST CHOICES</strong></h1>
 <div class="container d-flex">
   <div class= "mt-2">
     <h1 class= "ml-3 mb-3" style="text-align: center"><strong>MOVIES</strong></h1>
-  <div class="container d-flex flex-row flex-wrap justify-content-center">
-    <% movies = user_signed_in? ? @recs_movie : @media.sample(4) %>
-    <% movies.each do |medium| %>
-    <div class="movieposter position-relative">
-      <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
-        <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
-        <div class="popup">
-          <p class="card-title"><%= medium.title %></p>
-          <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
+    <div class="container d-flex flex-row flex-wrap justify-content-center">
+      <% movies = user_signed_in? ? @recs_movie : @media.sample(4) %>
+      <% movies.each do |medium| %>
+      <div class="movieposter position-relative">
+        <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+          <img class="card-img-top" style="height: 300px; object-fit: cover;" src="<%= medium.poster %>">
+          <div class="popup">
+            <p class="card-title"><%= medium.title %></p>
+            <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
+          </div>
+        </a>
+          <!-- the and sign is the safe navigator operator, only runs if what comes before is not nil -->
+          <% image_tag = Watch.find_by(user: current_user, medium: medium)&.favourite ? "pictograms/diamond-heart-purplebright" : "pictograms/diamond-heart-empty" %>
+          <%= link_to cl_image_tag(image_tag), like_path(medium), { :id => "#{medium.id}", :class => "button-favorite position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'favorite' }  %>
+          <% image_tag = Watch.find_by(user: current_user, medium: medium)&.watchlist ? "pictograms/watchlist-filled-metallic" : "pictograms/watchlist-empty" %>
+          <%= link_to cl_image_tag(image_tag), watchlist_path(medium), { :id => "#{medium.id}", :class => "button-watchlist position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'watchlist' } %>
         </div>
-      </a>
-        <!-- the and sign is the safe navigator operator, only runs if what comes before is not nil -->
-        <% image_tag = Watch.find_by(user: current_user, medium: medium)&.favourite ? "pictograms/diamond-heart-purplebright" : "pictograms/diamond-heart-empty" %>
-        <%= link_to cl_image_tag(image_tag), like_path(medium), { :id => "#{medium.id}", :class => "button-favorite position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'favorite' }  %>
-        <% image_tag = Watch.find_by(user: current_user, medium: medium)&.watchlist ? "pictograms/watchlist-filled-metallic" : "pictograms/watchlist-empty" %>
-        <%= link_to cl_image_tag(image_tag), watchlist_path(medium), { :id => "#{medium.id}", :class => "button-watchlist position-absolute", 'data-toggle' => 'tooltip', 'data-placement' => 'top', :title => 'watchlist' } %>
-      </div>
-     <!--  tippy.js -->
-    <% end %>
-  </div>
+       <!--  tippy.js -->
+      <% end %>
+    </div>
   </div>
   <div class= "mt-2">
     <h1 class= "ml-3 mb-3" style="text-align: center"><strong>SERIES</strong></h1>
@@ -55,43 +55,45 @@
       </div>
   </div>
 </div>
-<% if user_signed_in? %>
-  <% unless @friend_recs.empty? %>
-    <div class= "mt-2">
-      <h1 class= "ml-3 mt-3 mb-3" style="text-align: center"><strong>Your friends recently watched:</strong></h1>
-      <div class="container d-flex flex-row flex-wrap justify-content-center">
-        <% @friend_recs.each do |hash| %>
-          <div class="card col-4 border d-flex flex-row" style="height: 100px;">
-            <div>
-              <img class="card-img-top align-middle" src="
-                <% if current_user.photo.blank? %>
-                  https://clipartart.com/images/login-background-images-clipart-1.jpg
-                <% else %>
-                  <%= cl_image_path current_user.photo.key, width: 250, height: 100, crop: :fill%>
-                <% end %>
-                " alt="Card image cap">
-            </div>
-            <div>
+<div>
+  <% if user_signed_in? %>
+    <% unless @friend_recs.empty? %>
+      <div class= "mt-2">
+        <h1 class= "ml-3 mt-5 mb-3" style="text-align: center"><strong>Your friends recently watched:</strong></h1>
+        <div class="container d-flex flex-row flex-wrap justify-content-center">
+          <% @friend_recs.each do |hash| %>
+            <div class="card col-5 align-items-center border d-flex flex-row" style="height: 170px; margin-left: 10px; margin-top: 10px;">
+              <div style="position: relative;top: -25px;">
+                <img class="card-img-top align-middle" src="
+                  <% if current_user.photo.blank? %>
+                    https://clipartart.com/images/login-background-images-clipart-1.jpg
+                  <% else %>
+                    <%= cl_image_path current_user.photo.key, width: 250, height: 100, crop: :fill%>
+                  <% end %>
+                  " alt="Card image cap">
+              </div>
               <div>
-                <%= hash[:user].first_name + ' ' + hash[:user].last_name %>
-              </div>
-              <div class="d-flex flex-row">
-                <% hash[:media].each do |medium| %>
-                  <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
-                    <img class="card-img-top" style="height: 100%; object-fit: cover;" src="<%= medium.poster %>">
-                    <div class="popup">
-                      <p class="card-title"><%= medium.title %></p>
-                      <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
-                    </div>
-                  </a>
-                <% end %>
+                <div style="margin-left: 10px; margin-bottom: 5px;">
+                  <%= hash[:user].first_name + ' ' + hash[:user].last_name %>
+                </div>
+                <div class="d-flex flex-row" style="margin-left: 10px;">
+                  <% hash[:media].each do |medium| %>
+                    <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
+                      <img class="card-img-top" style="height: 100%; object-fit: cover;" src="<%= medium.poster %>">
+                      <div class="popup">
+                        <p class="card-title"><%= medium.title %></p>
+                        <p class="card-text"><img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= medium.rating %></p>
+                      </div>
+                    </a>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <!--      <button type="button" class="btn btn-outline-spacegreen">Rate Me</button> -->
