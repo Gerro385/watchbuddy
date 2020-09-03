@@ -17,8 +17,8 @@ class PagesController < ApplicationController
     @user = current_user
     @seen = Watch.where(user: current_user, seen: true)
     @favourites = Watch.where(user: current_user, favourite: true)
-    @favourite_movies = @favourites.select { | watch| watch.medium.media_type == "movie" }
-    @favourite_series = @favourites.select { | watch| watch.medium.media_type == "tv" }
+    @favourite_movies = @favourites.select { |watch| watch.medium.media_type == "movie" }
+    @favourite_series = @favourites.select { |watch| watch.medium.media_type == "tv" }
   end
 
   def watchlist
@@ -29,8 +29,8 @@ class PagesController < ApplicationController
 
   def favourites
     @favourites = Watch.where(user: current_user, favourite: true)
-    @favourite_movies = @favourites.select { | watch| watch.medium.media_type == "movie" }
-    @favourite_series = @favourites.select { | watch| watch.medium.media_type == "tv" }
+    @favourite_movies = @favourites.select { |watch| watch.medium.media_type == "movie" }
+    @favourite_series = @favourites.select { |watch| watch.medium.media_type == "tv" }
   end
 
   def seen
