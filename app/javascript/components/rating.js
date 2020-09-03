@@ -18,6 +18,7 @@ export const rateClick = () => {
   rateBtn.addEventListener("click", (event) => {
     event.preventDefault();
     rateRequest(id, rateBtn)
+    location.reload()
   })
 }
 const rateRequest = (id, button) => {
