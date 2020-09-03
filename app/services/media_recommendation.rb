@@ -4,19 +4,38 @@ class MediaRecommendation
   def self.recommend_media(user)
     text_movie = JSON.parse(RestClient.get("https://api.themoviedb.org/3/movie/popular?api_key=#{ENV['TMDB_KEY']}&language=en-US&page=1"))["results"].sample(5)
     text_tv = JSON.parse(RestClient.get("https://api.themoviedb.org/3/tv/popular?api_key=#{ENV['TMDB_KEY']}&language=en-US&page=1"))["results"].sample(5)
-    recs = []
+    recs_movie = []
+    recs_tv = []
     text_movie.each do |medium|
-      recs << Medium.new(MovieFetch.medium_hash(medium["id"], "movie"))
+      recs_movie << Medium.new(MovieFetch.medium_hash(medium["id"], "movie"))
     end
     text_tv.each do |medium|
-      recs << Medium.new(MovieFetch.medium_hash(medium["id"], "tv"))
+      recs_tv << Medium.new(MovieFetch.medium_hash(medium["id"], "tv"))
     end
     friends = find_friends(user)
     friends.each do |friend|
-      watches = Watch.where(user: friend).sample(5).map { |watch| watch.medium }
-      recs << watches unless watches.empty?
+      media = Watch.where(user: friend).sample(5).map { |watch| watch.medium }
+      media.each do |medium|
+        if medium.media_type == "tv"
+          recs_tv << medium
+        else
+          recs_movie << medium
+        end
+      end
     end
-    return recs.flatten
+    recs = [recs_movie.sample(4), recs_tv.sample(4)]
+    recs.each do |rec|
+      rec.map! do |medium|
+        found_medium = Medium.find_by(tmdb_id: medium.tmdb_id, media_type: medium.media_type)
+        if found_medium
+          found_medium
+        else
+          medium.save
+          medium
+        end
+      end
+    end
+    return recs
   end
 
   def self.friends_ratings(user, id)

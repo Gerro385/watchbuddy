@@ -5,7 +5,11 @@ class PagesController < ApplicationController
     @media = Medium.where(media_type: "movie" || "tv" || "Documentary")
     @watch = Watch.where(user: current_user)
     @favourites = Watch.where(user: current_user, favourite: true)
-    @recommended = MediaRecommendation.recommend_media(current_user) if user_signed_in?
+    if user_signed_in?
+      recs = MediaRecommendation.recommend_media(current_user)
+      @recs_movie = recs[0]
+      @recs_tv = recs[1]
+    end
   end
 
   def profile
