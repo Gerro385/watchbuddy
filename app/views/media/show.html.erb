@@ -15,13 +15,13 @@
                   <div class="d-flex" style="max-width: 620px; font-size: 13px;">
                     <div class="card-text" class="text-muted">
                       <div class="d-flex" style="margin-bottom: -9px;">
-                        <p id="duration" class="mr-1"><%= cl_image_tag("pictograms/clock-gray") %> <%= @medium.runtime %> min</p>
-                        <p id="genre" class="ml-2 mr-1"><%= cl_image_tag("pictograms/masks-gray") %> <%= @medium.genres.join(", ") %></p>
-                        <p id="seasons" class="ml-2 mr-1"><%= cl_image_tag("pictograms/tv-gray") if @medium.total_seasons %> <%= @medium.total_seasons if @medium.total_seasons %></p>
+                        <p id="duration" class= "mr-1", data-toggle="tooltip", data-placement= "bottom", title= "duration"><%= cl_image_tag("pictograms/clock-gray") %> <%= @medium.runtime %> min</p>
+                        <p id="genre" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "genre"><%= cl_image_tag("pictograms/masks-gray") %> <%= @medium.genres.join(", ") %></p>
+                        <p id="seasons" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "seasons"><%= cl_image_tag("pictograms/tv-gray") if @medium.total_seasons %> <%= @medium.total_seasons if @medium.total_seasons %></p>
                       </div>
                       <div class="d-flex" style="margin-left: -5px;">
-                      <p id="language" class="ml-2 mr-1"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
-                      <p id="origin" class="ml-2 mr-1"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
+                      <p id="language" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "language"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
+                      <p id="origin" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "origin"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
                       </div>
                     </div>
                   </div>
@@ -31,7 +31,7 @@
                 <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
                 <p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
                 <div class="d-flex justify-content-end">
-                  <span id="yourtag"><p class="card-text">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p></span><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "--" %></p></span>
+                  <span id="yourtag"><p class="card-text", data-toggle="tooltip", data-placement= "bottom", title= "Rate Me">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p></span><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "--" %></p></span>
                 </div>
               </div>
                 <div class="rating-popup d-none">

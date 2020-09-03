@@ -43,7 +43,11 @@ document.addEventListener('turbolinks:load', () => {
   setSeenButtons();
   $(function () {
     $('[data-toggle="tooltip"]').tooltip({
-      trigger : 'hover'
+      trigger : 'hover',
+      delay: {
+        show: 500,
+        hide: 0
+      }
     })
   });
   giveRating();   // bottom three can cause trouble, just move to the bottom or fix your shit!
