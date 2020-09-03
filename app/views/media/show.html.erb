@@ -11,10 +11,10 @@
               <div class="d-flex">
                 <div class="flex-column" style="margin-top: -11px;">
                   <div class="">
-                  <h1 class="card-title"><%= @medium.title %> <% image_tag = Watch.find_by(user: current_user, medium: @medium)&.favourite ? "pictograms/diamond-heart-purplebright" : "pictograms/diamond-heart-empty" %>
-                  <small> ( <%=@medium.first_air_date.strftime("%Y") if @medium.media_type !="tv" %>
-                  <%= @medium.first_air_date.strftime("%Y") + " - " + @medium.last_air_date.strftime("%Y") + " " if  @medium.media_type =="tv" %>)</small>
-                  <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-favorite mr-2", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'favorite' } %></h1>
+                    <h1 class="card-title"><%= @medium.title %> <% image_tag = Watch.find_by(user: current_user, medium: @medium)&.favourite ? "pictograms/diamond-heart-purplebright" : "pictograms/diamond-heart-empty" %>
+                    <small> ( <%=@medium.first_air_date.strftime("%Y") if @medium.media_type !="tv" %>
+                    <%= @medium.first_air_date.strftime("%Y") + " - " + @medium.last_air_date.strftime("%Y") + " " if  @medium.media_type =="tv" %>)</small>
+                    <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-favorite mr-2", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'favorite' } %></h1>
                   </div>
                   <div class="d-flex" style="max-width: 620px; font-size: 13px;">
                     <div class="card-text" class="text-muted">
@@ -24,8 +24,8 @@
                         <p id="seasons" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "seasons"><%= cl_image_tag("pictograms/tv-gray") if @medium.total_seasons %> <%= @medium.total_seasons if @medium.total_seasons %></p>
                       </div>
                       <div class="d-flex" style="margin-left: -5px;">
-                      <p id="language" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "language"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
-                      <p id="origin" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "origin"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
+                        <p id="language" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "language"><%= cl_image_tag("pictograms/language-gray") %> <%= @medium.language %></p>
+                        <p id="origin" class="ml-2 mr-1", data-toggle="tooltip", data-placement= "bottom", title= "origin"><%= cl_image_tag("pictograms/globe-gray") %> <%= @medium.origin_countries.join(", ") %></p>
                       </div>
                     </div>
                   </div>
@@ -33,20 +33,20 @@
               </div>
               <div class="text-right rating-section">
                 <p class="card-text">Watchbuddy <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
-                <p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @medium.rating %></p>
+                <p class="card-text">Buddys <img src="https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" alt="star"> <%= @buddy_rating %></p>
                 <div class="d-flex justify-content-end">
                   <span id="yourtag"><p class="card-text", data-toggle="tooltip", data-placement= "bottom", title= "Rate Me">Your <img id="your-rating" src="<%= !@watch.nil? && @watch.rating ? "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png" : "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png" %>" alt="star"></p></span><p id="ratingnum"> <%= !@watch.nil? && @watch.rating ? @watch.rating : "--" %></p></span>
                 </div>
               </div>
-                <div class="rating-popup d-none">
-                  <div class="d-flex flex-column align-items-center">
-                    <label for="ratingslide">Your Rating</label>
-                    <p id="rating" class="mb-1"><%= @medium.rating %></p>
-                    <input type="range" class="form-control-range" min="0" max="10" value="<%= @medium.rating %>" step="0.1" id="ratingslide">
-                    <textarea type="text" cols="5" rows="5" id="ratingdesc" maxlength="200" placeholder="Your review..."></textarea>
-                    <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen ratebtn" %>
-                  </div>
+              <div class="rating-popup d-none">
+                <div class="d-flex flex-column align-items-center">
+                  <label for="ratingslide">Your Rating</label>
+                  <p id="rating" class="mb-1"><%= @medium.rating %></p>
+                  <input type="range" class="form-control-range" min="0" max="10" value="<%= @medium.rating %>" step="0.1" id="ratingslide">
+                  <textarea type="text" cols="5" rows="5" id="ratingdesc" maxlength="200" placeholder="Your review..."></textarea>
+                  <%= link_to "Rate", rate_path(@medium, show: true), id: "#{@medium.id}" , class: "btn my-2 btn-outline-spacegreen ratebtn" %>
                 </div>
+              </div>
             </div>
           </div>
 
