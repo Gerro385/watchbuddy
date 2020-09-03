@@ -1,5 +1,5 @@
-<div class="container" style="margin-top: 50px">
   <%= link_to 'Back', url_for(:back), class: "btn btn-outline-spacegreen" %>
+<div class="container" style="margin-top: 50px">
   <div class="d-flex border">
     <div class="card-trip rounded" style="width: 350px;">
         <img class="card-img-show" src="<%= @medium.poster %>">
@@ -10,11 +10,11 @@
             <div class="d-flex justify-content-between relativdiv">
               <div class="d-flex">
               <h1 class="card-title" style="margin-left: -20px;"><%= @medium.title %>
-                <% image_tag = @medium.watches.first&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
+                <% image_tag = Watch.find_by(user: current_user, medium: @medium)&.favourite ? "pictograms/diamond-heart-filled" : "pictograms/diamond-heart-empty" %>
                 <%= link_to cl_image_tag(image_tag), like_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-favorite", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'favorite' } %>
-                <% image_tag = @medium.watches.first&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
+                <% image_tag = Watch.find_by(user: current_user, medium: @medium)&.watchlist ? "pictograms/watchlist-filled" : "pictograms/watchlist-empty" %>
                 <%= link_to cl_image_tag(image_tag), watchlist_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-watchlist", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'watchlist' }  %>
-                <% tick_image_tag = @medium.watches.first&.seen ? "pictograms/tick-filled" : "pictograms/tick-empty" %>
+                <% tick_image_tag = Watch.find_by(user: current_user, medium: @medium)&.seen ? "pictograms/tick-filled" : "pictograms/tick-empty" %>
                 <%= link_to cl_image_tag(tick_image_tag), seen_path(@medium, show: true), { :id => "#{@medium.id}", :class => "button-tick", 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', :title => 'seen' } %>
               </h1>
               </div>
