@@ -33,7 +33,6 @@ import { setWatchlistButtons }from '../components/watchlist.js'
 import { setSeenButtons }from '../components/seen.js'
 import { giveRating, rateClick }from '../components/rating.js'
 import { ratingSlide }from '../components/ratingSlider.js'
-// import { createReview } from '../components/reviews.js'; // <-- add this line
 
 
 document.addEventListener('turbolinks:load', () => {
