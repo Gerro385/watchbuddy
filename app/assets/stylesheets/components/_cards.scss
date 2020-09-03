@@ -157,7 +157,7 @@
 
 .card-fav {
   height: 202px;
-  width: 367px;
+  width: 100%;
   overflow: hidden;
   border: 1px solid white;
   .card-title {
@@ -166,7 +166,7 @@
 
 }
 
-.card-fav > img {
+.card-fav img {
   height: 100%;
   object-fit: cover;
 }
