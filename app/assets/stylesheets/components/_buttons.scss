@@ -37,3 +37,18 @@
   position: absolute;
   left: 320px;
 }
+
+.backbutton {
+
+  img{
+  width: 50px;
+  opacity: 0.6;
+  margin-top: 10px;
+  }
+
+  :hover {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  transform: scale(1.1);
+  }
+}
