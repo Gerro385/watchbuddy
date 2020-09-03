@@ -53,13 +53,26 @@ class MediaRecommendation
     return ((sum == 0) ? '--' : (sum / ratings.length))
   end
 
+  def self.friend_views(user)
+    friends = MediaRecommendation.find_friends(user)
+    views = []
+    friends.each do |friend|
+      Watch.where(user: friend, seen: true).sample(5).each do |watch|
+        views << watch
+      end
+    end
+    views.flatten!
+    views.map! { |watch| watch.medium }
+    return views[-4..-1]
+  end
+
   private
 
   def self.find_friends(user)
-    sent_req = Request.where(sender_id: user, status: 1)
-    sent_req.map { |req| User.find(req.receiver_id) } if sent_req.present?
-    received_req = Request.where(receiver_id: user, status: 1)
-    received_req.map { |req| User.find(req.sender_id) } if received_req.present?
-    return (sent_req + received_req)
+    sent_req = Request.where(sender_id: user.id, status: 1)
+    friends1 = sent_req.present? ? sent_req.map { |req| User.find(req.receiver_id) } : []
+    received_req = Request.where(receiver_id: user.id, status: 1)
+    friends2 = received_req.present? ? received_req.map { |req| User.find(req.sender_id) } : []
+    friends1.to_a + friends2.to_a
   end
 end
