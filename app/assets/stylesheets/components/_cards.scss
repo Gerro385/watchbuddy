@@ -17,6 +17,10 @@
     }
 }
 
+.pictograms {
+  justify-content: flex-end;
+}
+
 .card-text img {
   height: 25px;
 }
@@ -96,7 +100,7 @@
 
 #yourtag {
   position: absolute;
-  right: 27px;
+  right: 24px;
 }
 
 // profilecard
