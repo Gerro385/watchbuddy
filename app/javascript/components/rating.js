@@ -25,18 +25,17 @@ const rateRequest = (id, button) => {
   const slide = document.getElementById("ratingslide")
   const desc = document.getElementById("ratingdesc")
   fetch(`/rate/${id}?rating=${slide.value}&desc=${desc.value}`, {headers: {accept: "application/json"}})
-  .then(response => response.json())
-  .then(data => {
-    const ratingNum = document.getElementById("ratingnum");
-    ratingNum.innerText = data.rating
-    const ratingPopup = document.querySelector(".rating-popup");
-    ratingPopup.classList.add("d-none")
-    const ratingStar = document.getElementById("your-rating");
-    // changeImage(ratingStar, data.is_saved);
-    if (ratingStar.src === emptyStar) {
-      ratingStar.src = filledStar
-    }
-  })
+  //.then(response => response.json())
+  //.then(data => {
+    //const ratingNum = document.getElementById("ratingnum");
+    //ratingNum.innerText = data.rating
+   // const ratingPopup = document.querySelector(".rating-popup");
+    //ratingPopup.classList.add("d-none")
+    //const ratingStar = document.getElementById("your-rating");
+    //if (ratingStar.src === emptyStar) {
+    //  ratingStar.src = filledStar
+    //}
+  //})
 };
 const emptyStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-empty.png"
 const filledStar = "https://res.cloudinary.com/g385/image/upload/v1598863329/Pictograms/star-filled.png"
