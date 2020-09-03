@@ -347,9 +347,12 @@
  display: flex;
  width: 180px;
 }
+
 .card-review {
   position: relative;
   border: 1px solid;
+  width: 93%;
+  height: 180px;
 
   .avatar {
     position: absolute;
@@ -363,6 +366,7 @@
   .text {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 14px;
   }
   .rating {
     text-align: right;
@@ -372,8 +376,19 @@
     text-align: left;
   }
   .name {
-    text-align: right;
-    margin-right: 40px;
-    margin-bottom: 18px;
+    position: absolute;
+    right: 55px;
+    bottom: 15px;
   }
 }
+
+.container > .col-12.justify-content-center.align-items-center.mt-4.pl-0 > .row.mt-3.mb-3 {
+flex-wrap: nowrap;
+}
+
+
+.container > .col-12.justify-content-center.align-items-center.mt-4.pl-0 > .row.mt-3.mb-3 {
+  width: 93.5% !important;
+}
+
+
