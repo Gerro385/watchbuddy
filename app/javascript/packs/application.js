@@ -34,6 +34,7 @@ import { setSeenButtons }from '../components/seen.js'
 import { giveRating, rateClick }from '../components/rating.js'
 import { ratingSlide }from '../components/ratingSlider.js'
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
