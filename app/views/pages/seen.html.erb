@@ -17,6 +17,7 @@
             <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
             <% watch.medium.description.length > 60 ? dots = "..." : dots = ""  %>
             <p class="card-text"><%= watch.medium.description.slice(0..60) + dots %></p>
+            <p class="card-text"><%= cl_image_tag("pictograms/tick-filled") %><%= watch.created_at.strftime("%e %b %Y") %></p>
           </div>
         </div>
       </a>
