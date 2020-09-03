@@ -19,6 +19,21 @@ class MediaRecommendation
     return recs.flatten
   end
 
+  def self.friends_ratings(user, id)
+    friends = MediaRecommendation.find_friends(user)
+    ratings = []
+    friends.each do |friend|
+      friend_rate = Watch.find_by(user: friend, medium: Medium.find(id))
+      val = friend_rate.rating unless friend_rate.nil?
+      ratings << val unless val.nil?
+    end
+    sum = Float(0)
+    ratings.each do |rating|
+      sum += rating
+    end
+    return ((sum == 0) ? '--' : (sum / ratings.length))
+  end
+
   private
 
   def self.find_friends(user)
