@@ -7,7 +7,7 @@
       <% @favourite_movies.each do |watch| %>
         <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px"; width="100%";>
           <div class="d-flex card-fav justify-content-between">
-            <img src="<%= watch.medium.poster %>" style="height: 250px;"/>
+            <img src="<%= watch.medium.poster %>"/>
             <div class="card-fav-infos">
               <div class="d-flex justify-content-between">
                 <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
