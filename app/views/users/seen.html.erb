@@ -11,7 +11,7 @@
           <div class="card-fav-infos">
             <div class="d-flex justify-content-between">
               <h2 class="card-title mt-0 mb-1"><strong><%= watch.medium.title %></strong></h2>
-              <p class="card-text mb-0"><%= cl_image_tag("pictograms/star-filled") %> <%= watch.medium.rating %></p>
+              <p class="card-text mb-0"><%= cl_image_tag("pictograms/star-filled") %> <%= watch.rating %></p>
             </div>
             <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
             <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
