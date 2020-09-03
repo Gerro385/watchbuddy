@@ -16,6 +16,7 @@ class MediaController < ApplicationController
       @watch.user = current_user
       @watch.medium = @medium
     end
+    @buddy_rating = MediaRecommendation.friends_ratings(current_user, params[:id])
   end
 
   def create
