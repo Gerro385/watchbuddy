@@ -63,8 +63,6 @@ class WatchesController < ApplicationController
      # format.html { redirect_to medium_path(@medium) }
      # format.json { render json: { rating: @watch.rating } }
      # end
-
-     render "media/show"
   end
 
 
