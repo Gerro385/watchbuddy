@@ -15,8 +15,8 @@
               </div>
               <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
               <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
-              <% watch.medium.description.length > 420 ? dots = "..." : dots = ""  %>
-              <p class="card-text"><%= watch.medium.description.slice(0..420) + dots %></p>
+              <% watch.medium.description.length > 180 ? dots = "..." : dots = ""  %>
+              <p class="card-text"><%= watch.medium.description.slice(0..180) + dots %></p>
             </div>
           </div>
         </a>
@@ -37,8 +37,8 @@
               </div>
               <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") if watch.medium.media_type !="tv" %></p>
               <p class="card-text mb-2"><%= watch.medium.first_air_date.strftime("%Y") + " - " + watch.medium.last_air_date.strftime("%Y") if  watch.medium.media_type =="tv" %></p>
-              <% watch.medium.description.length > 420 ? dots = "..." : dots = ""  %>
-              <p class="card-text"><%= watch.medium.description.slice(0..420) + dots %></p>
+              <% watch.medium.description.length > 180 ? dots = "..." : dots = ""  %>
+              <p class="card-text"><%= watch.medium.description.slice(0..180) + dots %></p>
             </div>
           </div>
         </a>
