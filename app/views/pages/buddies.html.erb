@@ -33,29 +33,29 @@
     <div class="row d-flex align-items-center justify-content-center">
       <% @requests.each do |request| %>
         <% buddy = User.find(request.sender_id) %>
-          <div class="card-buddy col-7 mt-3">
+        <div class="card-buddy col-7 mt-3">
           <div>
-           <% if buddy.photo.blank? %>
-            <%= cl_image_tag("avatar-default", :radius=>50) %>
-          <% else %>
-            <%= cl_image_tag buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
-          <% end %>
+            <% if buddy.photo.blank? %>
+              <%= cl_image_tag("avatar-default", :radius=>50) %>
+            <% else %>
+              <%= cl_image_tag buddy.photo.key, width: 50, height: 50, crop: :thumb, gravity: :face %>
+            <% end %>
           </div>
           <div class="cardrequest d-flex">
-          <div class="card-buddy-infos-request">
+            <div class="card-buddy-infos-request">
               <%= link_to(user_path(buddy)) do %>
                 <h2><%= buddy.first_name %> <%= buddy.last_name %></h2>
               <% end %>
             </div>
             <div class="d-flex cardbuddy-status ">
-            <% accept_path = user_request_path(@user, request) + '?confirmation=accepted' %>
-            <%= link_to "Accept", accept_path, method: :patch, class: "btn status-button btn-outline-spacegreen" %>
-            <% decline_path = user_request_path(@user, request) + '?confirmation=declined' %>
-            <%= link_to "Decline", decline_path, method: :patch, class: "btn status-button decline btn-outline-danger" %>
-            </div>
+              <% accept_path = user_request_path(@user, request) + '?confirmation=accepted' %>
+              <%= link_to "Accept", accept_path, method: :patch, class: "btn status-button btn-outline-spacegreen" %>
+              <% decline_path = user_request_path(@user, request) + '?confirmation=declined' %>
+              <%= link_to "Decline", decline_path, method: :patch, class: "btn status-button decline btn-outline-danger" %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
 </div>
