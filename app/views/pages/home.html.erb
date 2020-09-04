@@ -64,7 +64,7 @@
         <div class="container d-flex flex-row flex-wrap justify-content-center">
           <% @friend_recs.each do |hash| %>
             <div class="card col-5 align-items-center border d-flex flex-row" style="height: 170px; margin-left: 10px; margin-top: 10px;">
-              <div class="buddyimg">
+              <a class="buddyimg" href="<%= user_path(hash[:user]) %>">
                 <img class="card-img-top align-middle" src="
                   <% if hash[:user].photo.blank? %>
                     https://clipartart.com/images/login-background-images-clipart-1.jpg
@@ -72,7 +72,7 @@
                     <%= cl_image_path hash[:user].photo.key, width: 150, height: 150, crop: :fill%>
                   <% end %>
                   " alt="Card image cap">
-              </div>
+              </a>
               <div>
                 <div style="margin-left: 10px; margin-bottom: 17px; margin-top: -12px;">
                   <%= hash[:user].first_name + ' ' + hash[:user].last_name %>
