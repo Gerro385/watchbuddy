@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @media = Medium.where(media_type: "movie" || "tv" || "Documentary")
     @watch = Watch.where(user: current_user)
     @favourites = Watch.where(user: current_user, favourite: true)
     if user_signed_in?

@@ -12,8 +12,8 @@
     <div class= "mt-2">
       <h1 class= "ml-3 mb-3" style="text-align: center"><strong>MOVIES</strong></h1>
       <div class="container d-flex flex-row flex-wrap justify-content-center">
-        <% media = Medium.where(media_type: "movie") %>
-        <% movies = user_signed_in? ? @recs_movie : @media.sample(4) %>
+        <% movie_media = Medium.where(media_type: "movie") %>
+        <% movies = user_signed_in? ? @recs_movie : movie_media.sample(4) %>
         <% movies.each do |medium| %>
         <div class="movieposter position-relative">
           <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
@@ -36,8 +36,8 @@
   <div class= "mt-2">
     <h1 class= "ml-3 mb-3" style="text-align: center"><strong>SERIES</strong></h1>
     <div class="container d-flex flex-row flex-wrap justify-content-center">
-        <% media = Medium.where(media_type: "tv") %>
-        <% shows = user_signed_in? ? @recs_tv : @media.sample(4) %>
+        <% tv_media = Medium.where(media_type: "tv") %>
+        <% shows = user_signed_in? ? @recs_tv : tv_media.sample(4) %>
         <% shows.each do |medium| %>
         <div class="movieposter position-relative">
           <a class="card px-0 m-1 border-0" style="text-decoration:none" href="<%= medium_path(medium) %>">
