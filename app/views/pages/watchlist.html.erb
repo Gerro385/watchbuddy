@@ -1,11 +1,11 @@
 <%= link_to cl_image_tag("pictograms/arrow-left-green"), url_for(:back), class: "backbutton position-absolute mt-3 ml-3"%>
 <h1 class="mt-4" style="text-align: center;"><strong>YOUR WATCHLIST</strong></h1>
 <div class="container d-flex">
-  <div class= "mt-2 mr-2" style="width: 540px;">
+  <div class= "" style="width: 600px;">
     <h1 style="text-align: center"><strong>MOVIES</strong></h1>
     <div class="container row d-flex flex-row mt-3">
       <% @watchlist_movies.each do |watch| %>
-        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px; width: 600px;">
+        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 text-decoration-none text-reset" style="height: 250px; width: 100%;">
           <div class="d-flex card-fav justify-content-between">
             <img src="<%= watch.medium.poster %>"/>
             <div class="card-fav-infos">
@@ -23,11 +23,11 @@
       <% end %>
     </div>
   </div>
-  <div class= "mt-2 ml-2" style="width: 540px;">
+  <div class= "" style="width: 600px;">
     <h1 style="text-align: center"><strong>SERIES</strong></h1>
     <div class="container row d-flex flex-row mt-3">
       <% @watchlist_series.each do |watch| %>
-        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 my-2 text-decoration-none text-reset" style="height: 250px; width: 600px;">
+        <a href="<%= medium_path(watch.medium) %>" class="cards col-12 text-decoration-none text-reset" style="height: 250px; width: 100%;">
           <div class="d-flex card-fav justify-content-between">
             <img src="<%= watch.medium.poster %>" />
             <div class="card-fav-infos">
