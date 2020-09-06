@@ -4,7 +4,7 @@
   <h1>All the media <%= @watches.first.user.first_name %> watched</h1>
 </div>
   <div class="row d-flex flex-fow mt-5">
-    <% @watches.each do |watch| %>
+    <% @watches.reverse.each do |watch| %>
       <a href="<%= medium_path(watch.medium) %>" class="cards col-4 my-2 text-decoration-none text-reset">
         <div class="d-flex card-fav justify-content-between">
           <img src="<%= watch.medium.poster %>" style="max-height: 200px;"/>
