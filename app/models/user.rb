@@ -5,8 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, presence: true
+  validate :file_too_big
   has_one_attached :photo
   has_many :watches
+
+  def file_too_big
+    if photo.attached?
+      errors.add(:user, message: 'File size too large!') if photo.byte_size > 10602696
+    end
+  end
 
   include PgSearch::Model
   pg_search_scope :search_by_email_and_first_name_and_last_name,
