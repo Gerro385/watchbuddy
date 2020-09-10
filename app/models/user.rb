@@ -10,7 +10,9 @@ class User < ApplicationRecord
   has_many :watches
 
   def file_too_big
-    errors.add(:user_id, 'File size too large!') if File.size(photo) / 2**20.round(2) > 10
+    if photo.attached?
+      errors.add(:user, message: 'File size too large!') if photo.byte_size > 10602696
+    end
   end
 
   include PgSearch::Model
