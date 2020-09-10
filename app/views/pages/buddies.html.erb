@@ -1,34 +1,8 @@
 <%= link_to cl_image_tag("pictograms/arrow-left-green"), url_for(:back), class: "backbutton position-absolute mt-3 ml-3"%>
 <div class="container">
   <div class="row justify-content-center mt-4">
-    <h1>My buddies</h1>
+    <h1>Requests</h1>
     <%= link_to "Find Buddies", users_path, class: "ml-5 btn removebtn btn-outline-spacegreen" %>
-  </div>
-    <div class="row d-flex align-items-center justify-content-center">
-      <% @buddies.each do |buddy| %>
-        <div class="card-buddy col-7 mt-3">
-          <div>
-            <%= link_to(user_path(buddy)) do %>
-              <% if buddy[0].photo.blank? %>
-                <%= cl_image_tag("avatar-default", :radius=>50) %>
-              <% else %>
-                <%= cl_image_tag buddy[0].photo.key, width: 150, height: 150, crop: :fill, gravity: :face %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="card-buddy-infos d-flex">
-            <div>
-              <%= link_to(user_path(buddy)) do %>
-                <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
-              <% end %>
-            </div>
-            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn removebtn btn-outline-spacegreen" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <div class="row justify-content-center mt-4">
-   <h1>Requests</h1>
   </div>
     <div class="row d-flex align-items-center justify-content-center">
       <% @requests.each do |request| %>
@@ -57,5 +31,33 @@
         </div>
       <% end %>
     </div>
+    <div class="row justify-content-center mt-4">
+    <h1>My Buddies</h1>
+    </div>
+    <div class="row d-flex align-items-center justify-content-center">
+      <% @buddies.each do |buddy| %>
+        <div class="card-buddy col-7 mt-3">
+          <div>
+            <%= link_to(user_path(buddy)) do %>
+              <% if buddy[0].photo.blank? %>
+                <%= cl_image_tag("avatar-default", :radius=>50) %>
+              <% else %>
+                <%= cl_image_tag buddy[0].photo.key, width: 150, height: 150, crop: :fill, gravity: :face %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="card-buddy-infos d-flex">
+            <div>
+              <%= link_to(user_path(buddy)) do %>
+                <h2><%= buddy[0].first_name %> <%= buddy[0].last_name %></h2>
+              <% end %>
+            </div>
+            <%= link_to "Remove Buddy", user_request_path(buddy[0], buddy[1]), method: :delete, class: "btn removebtn btn-outline-spacegreen" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
