@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'profile/favourites', to: 'pages#favourites'
   get 'profile/buddies', to: 'pages#buddies'
   get 'profile/seen', to: 'pages#seen'
+  get '/.well-known/acme-challenge/5f0M-OHidF_-fudPB9nZn4g3R1ryCM93PSSh0EPgWNI', to: 'pages#tslcert'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :media, only: %i[index show create]
   resources :users, only: %i[index show] do

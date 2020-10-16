@@ -43,4 +43,8 @@ class PagesController < ApplicationController
     @buddies = sent.map { |request| [User.find_by(id: request.receiver_id), request.id] } + received.map { |request| [User.find_by(id: request.sender_id), request.id] }
     @requests = Request.where(receiver_id: current_user, status: 0)
   end
+
+  def tslcert
+  end
+
 end
